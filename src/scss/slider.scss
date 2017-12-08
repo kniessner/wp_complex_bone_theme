@@ -1,0 +1,118 @@
+.slick-slider{
+	display: none;
+
+}
+.image_slider {
+    margin: 20px 0;
+}
+.slick-initialized {
+  		
+	display: block;
+	.slick-slide{
+		        //background: RGBA(38, 38, 38,0.7) !important;
+			    max-height: 600px !important;
+			    position: relative;
+			    height: 600px;
+			    padding:20px 0;
+
+				.grid-item {
+				    position: absolute !important;
+					width: auto !important;
+					top: 0 !important;
+					display: block !important;
+					left: auto !important;
+					max-height: 80vh !important;
+					height: 100% !important;
+				}
+
+				img {
+			      	width: auto;
+			      	//transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+			      	transform: scale(1.2);
+			      	display: block;
+					margin: 0 auto;
+					height: 100%;
+			    }
+			    
+			    &.slick-active img {
+			      //transform: scale(1);
+			    }
+		    }
+	
+
+    &.slick-center{
+    	//padding: 50px;
+    }
+}
+
+.slider_thumbs{
+			    margin: 20px;
+			    background: RGBA(38, 38, 38,0.7);
+			    padding: 20px;
+			    border: 1px solid RGBA(246, 236, 2, 1.00);
+		    .slick-slide{
+		    	max-height: 100px;
+		    	padding: 10px 0;
+		    	height: 100px;
+		    	width: 100px;
+		    	img{
+		    		height: 100px;
+		    		width: 100px;
+		    	}
+		    }
+}
+.slick-dots {
+
+    margin: 20px 0;
+    position: relative;
+	bottom: 0;
+}
+
+.skill_slider{
+	position: relative;
+    width: 400px;
+
+    padding: 20px;
+    float: right;
+	.word_base{
+		//width: 50%;
+		display: block;
+		//float: left;
+		//background: RGBA(84, 84, 84, 0.9) ;
+		//padding: 60px 0 60px;
+		mix-blend-mode: exclusion;
+		h4{
+			color:rGBA(248, 233, 0, 1.00);
+		    text-align: right;
+		    /* margin-bottom: -30px; */
+		    z-index: 100;
+		   // color: white;
+		  	//margin: 20px;
+		    margin-top: 20px;
+		    letter-spacing: 10px;
+		    text-transform: uppercase;
+		    font-size: 14px;
+		}
+	}
+	.word_slider{
+			//width: 50%;
+			//float: right;
+			mix-blend-mode: exclusion;
+				.slide{
+  			
+				    mix-blend-mode: exclusion;
+
+				    h4{
+					    color: RGBA(248, 233, 0, 1.00);
+					    text-align: right;
+					    z-index: 100;
+						//text-decoration: underline;  
+						    //margin: 20px;
+						    letter-spacing: 10px;
+						    text-transform: uppercase;
+						    font-size: 14px;
+				    }
+  			}
+	}
+	
+}
