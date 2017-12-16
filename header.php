@@ -22,7 +22,7 @@
 
 <body <?php hybrid_attr( 'body' ); ?> name="top">
 
-<div class="top_bar">
+
     <!-- *******    Main Menu
     ********************* -->
     <?php get_template_part( 'wp_setup/menus/menu-primary-top-collapsed' ); ?>
@@ -35,7 +35,7 @@
         <i class="fa fa-envelope" aria-hidden="true"></i>
         <i class="fa fa-flickr" aria-hidden="true"></i>
       </div>
-</div>
+<div class="top_bar"></div>
 
 
 
@@ -61,13 +61,13 @@
                 </g>
             </svg>
         </div>
-        <div class="header_subline">Sascha-Darius Knießner</div>        
+        <div class="header_subline">Sascha-Darius Knießner</div>
 
 
     <span class="background"></span>
 
 </header>
-        
+
 
 
 <div id ="content_wrap">

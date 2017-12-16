@@ -5,16 +5,16 @@
 }
 
 .action_panel{
-	position: absolute;
-    color: #F8E900;
-    width: 50px;
-    background: RGBA(84, 84, 84, 1.00);
-    z-index: 10;
-    left: 10px;
-    top: 10px;
-    float: left;
-    text-align: center;
-	padding: 10px 0;
+  position: FIXED;
+      color: #F8E900;
+      width: 50px;
+      background: RGBA(84, 84, 84, 1);
+      z-index: 10;
+      RIGHT: 10px;
+      BOTTOM: 50px;
+      float: left;
+      text-align: center;
+      padding: 10px 0;
 	.fa{
 		margin:  10px;
 	}
@@ -58,17 +58,17 @@
 }
 
 .navbar-toggler {
-    top: 10px;
-    background: RGBA(84, 84, 84, 1.00);
-    position: relative;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    z-index: 100;
-    border-radius: 0;
-    margin: 0;
-    padding: 0;
-    text-align: center;
+  top: 30px;
+      background: RGBA(84, 84, 84, 1);
+      position: fixed;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      z-index: 100;
+      border-radius: 0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
     .fa{
     	color: RGBA(246, 236, 2, 1.00);
 	    float: left;
@@ -104,7 +104,7 @@ nav.navbar {
 		        color: white;
 			    font-size: 14px;
 			    padding: 15px 10px;
-			
+
 		}
 		#navbarTogglerDemo02 {
 		    padding: 0 50px;
@@ -112,7 +112,7 @@ nav.navbar {
 		.sub-menu{
 			display: none;
 		}
-	
+
 		.social{
 			i{
 				    padding: 14px 10px 10px;
@@ -136,7 +136,7 @@ nav.navbar {
     50%{background-position:75% 100%}
     100%{background-position:26% 0%}
 }
-@keyframes Gradient_Flow1 { 
+@keyframes Gradient_Flow1 {
     0%{background-position:26% 0%}
     50%{background-position:75% 100%}
     100%{background-position:26% 0%}
@@ -148,7 +148,7 @@ nav.navbar {
         position: absolute;
         width: 100%;
         background: RGBA(84, 84, 84, 1);
- 
+
     }
 
     .action_panel {
@@ -160,4 +160,5 @@ nav.navbar {
          top: 0px;
         font-size: inherit;
     }
+
 }

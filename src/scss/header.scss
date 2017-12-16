@@ -4,7 +4,7 @@ header{
     position: relative;
     margin-top: 0px;
     margin-bottom: 0px;
-    border-bottom: 10px solid RGBA(248, 233, 0, 1.00);
+    border-bottom: 10px solid rgba(238, 245, 49, 0.9);;
     height: 30vh;
 	padding: 20px;
 
@@ -16,7 +16,7 @@ header{
 			    position: absolute;
 			    bottom: 0px;
 			    left: 0;
-			    text-transform: uppercase;			    
+			    text-transform: uppercase;
 			    letter-spacing: 0.7em;
 			    padding: 20px;
 			    font-weight: 700;
@@ -63,7 +63,7 @@ header{
 
         }
 	    &:hover{
-	    	 
+
 	    	    -webkit-transition: all 500ms ;
 			    -moz-transition: all 500ms ;
 			    -ms-transition: all 500ms ;
@@ -82,8 +82,8 @@ header{
 		        }
 	    }
 	    &.svg{
-		
-		  
+
+
 		}
     }
 
