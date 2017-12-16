@@ -18,7 +18,7 @@ get_header(); ?>
 		<!--<div class="start_image" ><img class="screen_fit" src="<?php bloginfo('template_url');?>/src/img/logo_form.png" /> </div>-->
 
 
-		<div class="skill_slider container">
+		<div class="skill_slider ">
 				<div class="word_base"><h4>Complex</h4></div>
 				<div class="slider word_slider">
 					  <div class="slide"><h4> Design</h4></div>
