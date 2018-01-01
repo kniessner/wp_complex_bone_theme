@@ -6,7 +6,7 @@ import * as THREE from 'three';
 var OrbitControls = require('three-orbit-controls')(THREE);
 
 jQuery(document).ready(function($) {
-
+  var header = document.getElementById('Orbit_Header');
   var container = document.getElementById('Orbit');
   if (container) {
     var scene = new THREE.Scene();
@@ -23,7 +23,8 @@ jQuery(document).ready(function($) {
 
     renderer.setSize(window.innerWidth - 15, (window.innerHeight));
     container.appendChild(renderer.domElement);
-    camera.position.z = 500;
+    //header.appendChild(renderer.domElement);
+    camera.position.z = 100;
     camera.position.x = -0;
 
     /*=================================================
@@ -84,17 +85,18 @@ jQuery(document).ready(function($) {
       var mat = new THREE.MeshPhongMaterial({color: ' RGBA(84, 84, 84, 1.00)', transparent: true, shading: THREE.FlatShading});
       var material = new THREE.MeshLambertMaterial({color: 0xFDFDFDF, morphTargets: true, wireframe: true, combine: THREE.FlatShading});
 
-      this.mesh = new THREE.Mesh(geom, mat);
-      this.mesh.receiveShadow = true;
+//  this.mesh = new THREE.Mesh(geom, mat);
+var geometry1 = new THREE.TorusGeometry(302, 100, 50, 50);
 
+      this.mesh =  new THREE.Mesh(geometry1, material);
+        this.mesh.receiveShadow = true;
       this.wire = new THREE.Mesh(geometry, material);
       this.wire.receiveShadow = true;
 
     }
 
     Sea.prototype.moveWaves = function() {
-
-      var verts = this.mesh.geometry.vertices;
+      var verts = this.wire.geometry.vertices;
       var l = verts.length;
 
       for (var i = 0; i < l; i++) {
@@ -102,16 +104,16 @@ jQuery(document).ready(function($) {
 
         var vprops = this.waves[i];
 
-        v.x = vprops.x + Math.cos(vprops.ang) * vprops.amp;
-        v.y = vprops.y + Math.sin(vprops.ang) * vprops.amp;
+      v.x = vprops.x + Math.cos(vprops.ang) * vprops.amp;
+     v.y = vprops.y + Math.sin(vprops.ang) * vprops.amp;
 
-        vprops.ang += vprops.speed;
+      vprops.ang += vprops.speed;
 
       }
       this.wire.geometry.verticesNeedUpdate = true;
-      this.mesh.geometry.verticesNeedUpdate = true;
-      bubbule.wire.rotation.y -= .002;
-      bubbule.mesh.rotation.y += .002;
+      //this.mesh.geometry.verticesNeedUpdate = true;
+      bubbule.wire.rotation.y -= .00002;
+      bubbule.mesh.rotation.y -= .00002;
     }
     var bubbule;
     function createBubbule() {
@@ -119,7 +121,7 @@ jQuery(document).ready(function($) {
 
       // add the mesh of the sea to the scene
       scene.add(bubbule.wire);
-      scene.add(bubbule.mesh);
+  // scene.add(bubbule.mesh);
     }
     createBubbule();
 
@@ -232,11 +234,11 @@ jQuery(document).ready(function($) {
       //RingWire.rotation.y += 0.0003;
       //RingWire.rotation.x += 0.0006;
       //RingWire.rotation.z += 0.0006;
-      camera.position.x += (mouseX - camera.position.x) * 0.0005;
-      camera.position.y += (-mouseY - camera.position.y) * 0.0005;
+      camera.position.x += (mouseX - camera.position.x) * 0.0000005;
+      camera.position.y += (-mouseY - camera.position.y) * 0.00005;
 
-      camera.position.y += 0.001;
-      camera.position.x += 0.0002;
+    //  camera.position.y += 0.0001;
+    //  camera.position.x += 0.0002;
       var rand_speed_y = Math.floor(Math.random() * 0.000019) + 0.0001;
       var rand_speed_x = Math.floor(Math.random() * 0.000649) + 0.0001;
       var rand_speed_z = Math.floor(Math.random() * 0.000119) + 0.0001;
@@ -248,6 +250,10 @@ jQuery(document).ready(function($) {
       bubbule.wire.position.y += (rand_speed_y * 2);
       bubbule.wire.position.x -= (rand_speed_x * 2);
       bubbule.wire.position.z += (rand_speed_z * 2);
+
+      bubbule.wire.position.y -= (rand_speed_y * 2);
+      bubbule.wire.position.x += (rand_speed_x * 2);
+      bubbule.wire.position.z -= (rand_speed_z * 2);
       //balls[3].position.x = Math.cos(5*t) * 150;
       //balls[3].position.y = Math.cos(5*t) * 150;
       //balls[3].position.z = Math.sin(5*t) * 150;

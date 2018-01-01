@@ -74,24 +74,28 @@
 	bottom: 0;
 }
 
-.skill_slider {
-	position: absolute;
-	width: 100%;
-	padding: 20px 60px;
-	height: 90px;
-	z-index: 100;
-	border-bottom: 1px solid rgba(238, 245, 49, 0.9);
-
+#phrase_slider {
+	//position: absolute;
+width: 100%;
+padding: 0px 20px;
+//height: 90px;
+z-index: 100;
+//border-bottom: 1px solid rgba(238, 245, 49, 0.9);
+//background: rgba(38, 45, 49, 0.9);
+top: 0;
+background: snow;
+display: none;
 	.word_base {
 		//width: 50%;
 		display: block;
 		float: left;
 		//background: RGBA(84, 84, 84, 0.9) ;
 		//padding: 60px 0 60px;
-		mix-blend-mode: exclusion;
+		//mix-blend-mode: exclusion;
 
 		h4 {
-			color: rGBA(248, 233, 0, 1.00);
+			//color: rGBA(248, 233, 0, 1.00);
+			color:#262D31;
 			text-align: right;
 			/* margin-bottom: -30px; */
 			z-index: 100;
@@ -100,27 +104,28 @@
 			margin-top: 20px;
 			letter-spacing: 30px;
 			text-transform: uppercase;
-			font-size: 14px;
+			font-size: 12px;
 		}
 	}
 
 	.word_slider {
 		//width: 50%;
 		//float: right;
-		mix-blend-mode: exclusion;
+		//mix-blend-mode: exclusion;
 
 		.slide {
 			mix-blend-mode: exclusion;
 
 			h4 {
-				color: RGBA(248, 233, 0, 1.00);
+				//color: RGBA(248, 233, 0, 1.00);
+				color:#262D31;
 				text-align: right;
 				z-index: 100;
 				//text-decoration: underline;
 				//margin: 20px;
 				letter-spacing: 30px;
 				text-transform: uppercase;
-				font-size: 14px;
+				font-size: 12px;
 			}
 		}
 	}

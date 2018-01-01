@@ -18,7 +18,7 @@ import $ from 'jquery';
 import 'masonry-layout'
 
 /*
-//////////////	THREE JS 
+//////////////	THREE JS
 */
 import 'three';
 import * as THREE from 'three';
@@ -26,7 +26,7 @@ import * as THREE from 'three';
 /*
 //////////////		SLICK CAROUSEl
 */
-
+import anime from 'animejs'
 
 import 'slick-carousel';
 import 'slick-carousel/slick/slick.scss';
@@ -56,4 +56,3 @@ import './js/point_mesh'
 
 //import './js/threeJS/pointCloud'
 //import './js/threeJS/particle'
-

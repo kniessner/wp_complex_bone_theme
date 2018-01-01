@@ -1,6 +1,6 @@
 body {
-	font-family: 'Lato', sans-serif;
-	color: #fff;
+	//font-family: 'Lato', sans-serif;
+	color: #262D31;
 	//background: linear-gradient(214deg, #232323,#333333, #264157, #3689a0,  #444444, #264157);
 	font-size: 12px;
 	width: 100%;
@@ -8,13 +8,9 @@ body {
 	margin: 0;
 	height: 100vh;
 	top: 0;
-	background: linear-gradient(165deg, #e5e5e5, #ffffff, #404040, #bfbfbf);
-	background-size: 800% 800%;
-	position: absolute;
-	-webkit-animation: AnimationName 45s ease infinite;
-	-moz-animation: AnimationName 45s ease infinite;
-	-o-animation: AnimationName 45s ease infinite;
-	animation: AnimationName 45s ease infinite;
+	//background: linear-gradient(165deg, #e5e5e5, rgb(59, 66, 69), #404040, #bfbfbf); //	background-size: 800% 800%;
+	//position: absolute;
+	mix-blend-mode: hard-light;
 }
 
 .hidden {
@@ -27,36 +23,38 @@ canvas#point_mesh {
 	width: 100% !important;
 }
 
-
 #content_wrap {
-	//float: left;
-	top: 0;
-	width: 100%;
-	height: 60vh;
-	background: rgba(38, 45, 49, 0.9);
-	padding: 30px 0;
-	border-bottom: 1px solid rgba(238, 245, 49, 0.9);
+	position: relative;
+width: 100%;
+display: block;
+float: left;
+height: 50vh;
+padding: 20px 0 20px;
+z-index: 15px;
+//background: rgba(33, 37, 41, 0.6);
+z-index: 100;
 }
 
 #main {
 	position: relative;
-	z-index: 10;
-	font-size: 13px;
-	padding: 30px 0;
-	background: rgba(38, 45, 49, 0.9);
-	//display: inline-block;
-	width: 100%;
-	border-bottom: 10px solid rgba(238, 245, 49, 0.9);
+z-index: 10;
+font-size: 13px;
+padding: 20px;
+height: 100%;
+background: rgba(0, 0, 0, 0.7);
+color: white;
+font-weight: 100;
+}
 
-}
 .show_board {
-    background: rgba(38, 45, 49, 0.9);
-    position: relative;
-    float: left;
-    width: 100%;
-    margin: 80px auto;
-    padding: 40px;
+	background: rgba(38, 45, 49, 0.9);
+	position: relative;
+	float: left;
+	width: 100%;
+	margin: 80px auto;
+	padding: 40px;
 }
+
 .grids {
 	position: relative;
 	/* height: 626px; */
