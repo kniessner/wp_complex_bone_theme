@@ -60,7 +60,7 @@ $colors: $colour1, $colour2, $colour3, $colour4;
   }
   100%{
     transform: scale(0.95) rotateX(5deg) rotateY(5deg);
-    box-shadow: -10px 10px 30px -10px;
+    //box-shadow: -10px 10px 30px -10px;
     opacity: .8;
   }
   }

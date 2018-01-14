@@ -24,6 +24,8 @@ get_header(); ?>
 		<main id="main" class="site-main ">
 		<!--<div class="start_image" ><img class="screen_fit" src="<?php bloginfo('template_url');?>/src/img/logo_form.png" /> </div>-->
 		<div class="content_header container">
+			<h1 style="border-bottom:1px solid silver;text-align: left;padding: 10px;background: none;color: black;">KNIESSNER COMPLEX
+			</h1>
 						<h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;">This Website will be never done!</h2>
 						<h4  style="color: #887F00;font-weight: 100;">following the prinziples of chaos -  the only habit is to steady move ahead  </b></h4>
 
