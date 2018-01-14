@@ -95,8 +95,9 @@ get_header(); ?>
 				<?php
 				for ($i = 1; $i <= 20; $i++) {
 						?>
-						<div class="box">
-
+						<div class="plate">
+									<div class="plate_content">
+									</div>
 						</div>
 						<?php
 					}
