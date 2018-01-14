@@ -27,7 +27,7 @@ get_header(); ?>
 			<h1 style="border-bottom:1px solid silver;text-align: left;padding: 10px;background: none;color: black;">KNIESSNER COMPLEX
 			</h1>
 						<h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;">This Website will be never done!</h2>
-						<h4  style="color: #887F00;font-weight: 100;">following the prinziples of chaos -  the only habit is to steady move ahead  </b></h4>
+						<h4  style="color: #fff;font-weight: 100;">following the prinziples of chaos -  the only habit is to steady move ahead  </b></h4>
 
 				</div>
 
