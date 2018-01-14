@@ -20,6 +20,49 @@ import 'masonry-layout'
 /*
 //////////////	THREE JS
 */
+import Particles from 'particlesjs';
+
+//
+// particles.particlesJS('particles-js', 'particles.json', function() {
+//   console.log('callback - particles.js config loaded');
+// });
+
+window.onload = function() {
+  Particles.init({
+    // normal options
+    selector: '.particle_background',
+    maxParticles: 50,
+    color: '#48F2E3',
+    connectParticles: true
+    // options for breakpoints
+    // responsive: [
+    //   {
+    //     breakpoint: 768,
+    //     options: {
+    //       maxParticles: 200,
+    //       color: '#48F2E3',
+    //       connectParticles: true
+    //     }
+    //   }, {
+    //     breakpoint: 425,
+    //     options: {
+    //       maxParticles: 100,
+    //       connectParticles: true
+    //     }
+    //   }, {
+    //     breakpoint: 320,
+    //     options: {
+    //       maxParticles: 0 // disables particles.js
+    //     }
+    //   }
+    // ]
+  });
+ // particlesJS('particles-js',' particles.json', function() {
+ //     console.log('callback - particles.js config loaded');
+ //   });
+};
+
+
 import 'three';
 import * as THREE from 'three';
 
@@ -49,7 +92,7 @@ import './js/grid'
 import './js/slider'
 
 import './js/menu'
-import './js/orbit'
+//import './js/orbit'
 import './js/point_mesh'
 
 //import './js/threeStart'

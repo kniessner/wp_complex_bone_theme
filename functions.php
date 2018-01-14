@@ -42,7 +42,7 @@ function complex_additional_setup() {
 		require_once( trailingslashit( TEMPLATEPATH ) . 'wp_setup/admin/custom_post-types.php' );
 		require_once( trailingslashit( TEMPLATEPATH ) . 'wp_setup/admin/media_meta.php' );
 		require_once( trailingslashit( TEMPLATEPATH ) . 'wp_setup/admin/custom_taxonomies.php' );
-
+    require_once( trailingslashit( TEMPLATEPATH ) . 'wp_setup/admin/notifications.php' );
 		//require_once( trailingslashit( TEMPLATEPATH ) . 'wp_setup/admin/walker_nav.php' );
 
 
@@ -138,79 +138,46 @@ function wpse_20151218_after_post_meta($meta_id, $post_id, $meta_key, $meta_valu
         $attachment_meta = get_post_meta($post_id);
     }
 }*/
+//
+// /* Automatically set the image Title, Alt-Text, Caption & Description upon upload
+// --------------------------------------------------------------------------------------*/
+// add_action( 'add_attachment', 'my_set_image_meta_upon_image_upload' );
+// function my_set_image_meta_upon_image_upload( $post_ID ) {
+//
+// 	// Check if uploaded file is an image, else do nothing
+//
+// 	if ( wp_attachment_is_image( $post_ID ) ) {
+//
+// 		$my_image_title = get_post( $post_ID )->post_title;
+//
+// 		// Sanitize the title:  remove hyphens, underscores & extra spaces:
+// 		$my_image_title = preg_replace( '%\s*[-_\s]+\s*%', ' ',  $my_image_title );
+//
+// 		// Sanitize the title:  capitalize first letter of every word (other letters lower case):
+// 		$my_image_title = ucwords( strtolower( $my_image_title ) );
+//
+// 		// Create an array with the image meta (Title, Caption, Description) to be updated
+// 		// Note:  comment out the Excerpt/Caption or Content/Description lines if not needed
+// 		$my_image_meta = array(
+// 			'ID'		=> $post_ID,			// Specify the image (ID) to be updated
+// 			'post_title'	=> $my_image_title,		// Set image Title to sanitized title
+// 			'post_excerpt'	=> $my_image_title,		// Set image Caption (Excerpt) to sanitized title
+// 			'post_content'	=> $my_image_title,		// Set image Description (Content) to sanitized title
+// 		);
+//
+//     	$all = get_post_meta( $post_ID );
+//
+// 		// Set the image Alt-Text
+// 		update_post_meta( $post_ID, '_wp_attachment_image_alt', $my_image_title );
+// 		update_post_meta( $post_ID, 'post_type', get_post_type( $post_ID ) );
+// 		update_post_meta( $post_ID, 'all_meta', $all  );
+//
+// 		// Set the image meta (e.g. Title, Excerpt, Content)
+// 		wp_update_post( $my_image_meta );
+//
+// 	}
+// }
 
-/* Automatically set the image Title, Alt-Text, Caption & Description upon upload
---------------------------------------------------------------------------------------*/
-add_action( 'add_attachment', 'my_set_image_meta_upon_image_upload' );
-function my_set_image_meta_upon_image_upload( $post_ID ) {
-
-	// Check if uploaded file is an image, else do nothing
-
-	if ( wp_attachment_is_image( $post_ID ) ) {
-
-		$my_image_title = get_post( $post_ID )->post_title;
-
-		// Sanitize the title:  remove hyphens, underscores & extra spaces:
-		$my_image_title = preg_replace( '%\s*[-_\s]+\s*%', ' ',  $my_image_title );
-
-		// Sanitize the title:  capitalize first letter of every word (other letters lower case):
-		$my_image_title = ucwords( strtolower( $my_image_title ) );
-
-		// Create an array with the image meta (Title, Caption, Description) to be updated
-		// Note:  comment out the Excerpt/Caption or Content/Description lines if not needed
-		$my_image_meta = array(
-			'ID'		=> $post_ID,			// Specify the image (ID) to be updated
-			'post_title'	=> $my_image_title,		// Set image Title to sanitized title
-			'post_excerpt'	=> $my_image_title,		// Set image Caption (Excerpt) to sanitized title
-			'post_content'	=> $my_image_title,		// Set image Description (Content) to sanitized title
-		);
-
-    	$all = get_post_meta( $post_ID );
-
-		// Set the image Alt-Text
-		update_post_meta( $post_ID, '_wp_attachment_image_alt', $my_image_title );
-		update_post_meta( $post_ID, 'post_type', get_post_type( $post_ID ) );
-		update_post_meta( $post_ID, 'all_meta', $all  );
-
-		// Set the image meta (e.g. Title, Excerpt, Content)
-		wp_update_post( $my_image_meta );
-
-	}
-}
-
-
-add_action( 'add_meta_boxes', 'attachment_meta' );
-
-function attachment_meta() {
-    //create a custom meta box
-    add_meta_box( 'attachment_meta', 'Featured Video Selector', 'attachment_meta_function', 'attachment', 'normal', 'high' );
-}
-
-function attachment_meta_function( $post ) {
-
-    //retrieve the meta data values if they exist
-    $attachment_meta_datas = get_post_meta( $post->ID);
-    var_dump($attachment_meta_datas);
-/*    ?>
-    <p>Featured:
-    <select name="c3m_mbe_featured">
-        <option value="No" <?php selected( $c3m_mbe_featured, 'no' ); ?>>No Way</option>
-        <option value="Yes" <?php selected( $c3m_mbe_featured, 'yes' ); ?>>Sure Feature This Video</option>
-    </select>
-    </p>
-    <?php*/
-}
-
-//hook to save the meta box data
-add_action( 'save_post', 'attachment_save_meta' );
-function attachment_save_meta( $post_ID ) {
-    global $post;
-
-        if ( isset( $_POST ) ) {
-            //update_post_meta( $post_ID, '_c3m_mbe_featured', strip_tags( $_POST['c3m_mbe_featured'] ) );
-        }
-
-}
 
 /**
  * Add Photographer Name and URL fields to media uploader
@@ -220,65 +187,65 @@ function attachment_save_meta( $post_ID ) {
  * @return $form_fields, modified form fields
  */
 
-function be_attachment_field_credits( $form_fields, $post ) {
-	$form_fields['be-photographer-name'] = array(
-		'label' => 'Photographer Name',
-		'input' => 'text',
-		'value' => get_post_meta( $post->ID, 'be_photographer_name', true ),
-		'helps' => 'If provided, photo credit will be displayed',
-	);
-
-	$form_fields['be-photographer-url'] = array(
-		'label' => 'Photographer URL',
-		'input' => 'text',
-		'value' => get_post_meta( $post->ID, 'be_photographer_url', true ),
-		'helps' => 'Add Photographer URL',
-	);
-
-	return $form_fields;
-}
-
-
-
-add_filter( 'attachment_fields_to_edit', 'be_attachment_field_credits', 10, 2 );
-
-/**
- * Save values of Photographer Name and URL in media uploader
- *
- * @param $post array, the post data for database
- * @param $attachment array, attachment fields from $_POST form
- * @return $post array, modified post data
- */
-
-function be_attachment_field_credits_save( $post, $attachment ) {
-	if( isset( $attachment['be-photographer-name'] ) )
-		update_post_meta( $post['ID'], 'be_photographer_name', $attachment['be-photographer-name'] );
-
-	if( isset( $attachment['be-photographer-url'] ) )
-		update_post_meta( $post['ID'], 'be_photographer_url', esc_url( $attachment['be-photographer-url'] ) );
-
-	return $post;
-}
-
-add_filter( 'attachment_fields_to_save', 'be_attachment_field_credits_save', 10, 2 );
-
-function custom_upload_directory( $args ) {
-
-    $id = $_REQUEST['post_id'];
-    $parent = get_post( $id )->post_parent;
-    $upload_dir = wp_upload_dir();
-    // Check the post-type of the current post
-    if( "x_items" == get_post_type( $id ) || "x_items" == get_post_type( $parent ) ) {
-
-        $upload_dir['basedir']  = 	'/x_items/';
-        $upload_dir['basedir']  = 	'/x_items/';
+// function be_attachment_field_credits( $form_fields, $post ) {
+// 	$form_fields['be-photographer-name'] = array(
+// 		'label' => 'Photographer Name',
+// 		'input' => 'text',
+// 		'value' => get_post_meta( $post->ID, 'be_photographer_name', true ),
+// 		'helps' => 'If provided, photo credit will be displayed',
+// 	);
+//
+// 	$form_fields['be-photographer-url'] = array(
+// 		'label' => 'Photographer URL',
+// 		'input' => 'text',
+// 		'value' => get_post_meta( $post->ID, 'be_photographer_url', true ),
+// 		'helps' => 'Add Photographer URL',
+// 	);
+//
+// 	return $form_fields;
+// }
 
 
 
-    }
-    return $args;
-}
-add_filter( 'upload_dir', 'custom_upload_directory' );
+// add_filter( 'attachment_fields_to_edit', 'be_attachment_field_credits', 10, 2 );
+//
+// /**
+//  * Save values of Photographer Name and URL in media uploader
+//  *
+//  * @param $post array, the post data for database
+//  * @param $attachment array, attachment fields from $_POST form
+//  * @return $post array, modified post data
+//  */
+//
+// function be_attachment_field_credits_save( $post, $attachment ) {
+// 	if( isset( $attachment['be-photographer-name'] ) )
+// 		update_post_meta( $post['ID'], 'be_photographer_name', $attachment['be-photographer-name'] );
+//
+// 	if( isset( $attachment['be-photographer-url'] ) )
+// 		update_post_meta( $post['ID'], 'be_photographer_url', esc_url( $attachment['be-photographer-url'] ) );
+//
+// 	return $post;
+// }
+//
+// add_filter( 'attachment_fields_to_save', 'be_attachment_field_credits_save', 10, 2 );
+//
+// function custom_upload_directory( $args ) {
+//
+//     $id = $_REQUEST['post_id'];
+//     $parent = get_post( $id )->post_parent;
+//     $upload_dir = wp_upload_dir();
+//     // Check the post-type of the current post
+//     if( "x_items" == get_post_type( $id ) || "x_items" == get_post_type( $parent ) ) {
+//
+//         $upload_dir['basedir']  = 	'/x_items/';
+//         $upload_dir['basedir']  = 	'/x_items/';
+//
+//
+//
+//     }
+//     return $args;
+// }
+// add_filter( 'upload_dir', 'custom_upload_directory' );
 
 
 
@@ -363,39 +330,39 @@ add_action( 'acf/rest_api/id', function( $id ) {
 
     return $id;
 } );
-
-
-//add_filter('http_origin', function() { return "http://your domain";});
-
-add_action( 'send_headers', function() {
-	if ( ! did_action('rest_api_init') && $_SERVER['REQUEST_METHOD'] == 'HEAD' ) {
-		header( 'Access-Control-Allow-Origin: *' );
-		header( "Access-Control-Allow-Credentials", "true");
-		header( 'Access-Control-Allow-Methods: GET' );
-		header( 'Access-Control-Allow-Headers', '"Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"');
-		header( 'Access-Control-Expose-Headers: Link' );
-		header( 'Access-Control-Allow-Methods: HEAD' );
-	}
-} );
-add_action( 'rest_api_init', function() {
-
-	remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
-	add_filter( 'rest_pre_serve_request', function( $value ) {
-		header( 'Access-Control-Allow-Origin: *' );
-		header( 'Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE' );
-		header( 'Access-Control-Allow-Credentials: true' );
-
-		return $value;
-
-	});
-}, 15 );
-
-function add_cors_http_header(){
-    header("Access-Control-Allow-Origin: *");
-}
-add_action('init','add_cors_http_header');
-
-
+//
+//
+// //add_filter('http_origin', function() { return "http://your domain";});
+//
+// add_action( 'send_headers', function() {
+// 	if ( ! did_action('rest_api_init') && $_SERVER['REQUEST_METHOD'] == 'HEAD' ) {
+// 		header( 'Access-Control-Allow-Origin: *' );
+// 		header( "Access-Control-Allow-Credentials", "true");
+// 		header( 'Access-Control-Allow-Methods: GET' );
+// 		header( 'Access-Control-Allow-Headers', '"Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers"');
+// 		header( 'Access-Control-Expose-Headers: Link' );
+// 		header( 'Access-Control-Allow-Methods: HEAD' );
+// 	}
+// } );
+// add_action( 'rest_api_init', function() {
+//
+// 	remove_filter( 'rest_pre_serve_request', 'rest_send_cors_headers' );
+// 	add_filter( 'rest_pre_serve_request', function( $value ) {
+// 		header( 'Access-Control-Allow-Origin: *' );
+// 		header( 'Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE' );
+// 		header( 'Access-Control-Allow-Credentials: true' );
+//
+// 		return $value;
+//
+// 	});
+// }, 15 );
+//
+// function add_cors_http_header(){
+//     header("Access-Control-Allow-Origin: *");
+// }
+// add_action('init','add_cors_http_header');
+//
+//
 
 
 ?>

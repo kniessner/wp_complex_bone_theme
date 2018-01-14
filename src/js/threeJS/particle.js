@@ -69,7 +69,7 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 				renderer = new THREE.WebGLRenderer();
 				renderer.setPixelRatio( window.devicePixelRatio );
 				renderer.setSize( window.innerWidth, window.innerHeight );
-				document.getElementById('Orbit').appendChild( renderer.domElement );
+				document.getElementById('app').appendChild( renderer.domElement );
 
 
 				//stats = new Stats();
@@ -174,6 +174,3 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 				renderer.render( scene, camera );
 
 			}
-
-
-		

@@ -68,6 +68,8 @@
     "masonry-layout": "^4.2.0",
     "node-jsx": "^0.13.3",
     "normalize-scss": "^7.0.0",
+    "particles.js": "^2.0.0",
+    "particlesjs": "^2.1.0",
     "pixi.js": "^4.6.2",
     "popper.js": "^1.12.6",
     "postcss-instagram": "^1.0.0",

@@ -1,0 +1,66 @@
+$colour1: rgb(255,255,255); // white
+$colour2: rgb(255,0,0); // red
+$colour3: rgb(135,206,250); // sky blue
+$colour4: rgb(255,255,0);   // yellow
+
+$colors: $colour1, $colour2, $colour3, $colour4;
+#point_mesh {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0;
+  display: block;
+  z-index: 1;
+	width: 100% !important;
+}
+.particle_background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0;
+    display: block;
+		opacity: 0.7;
+    z-index: 1;
+		background: linear-gradient(165deg, #e5e5e5, #3b4245, #404040, #bfbfbf);
+}
+.background_plates {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  margin-top: 50px;
+    left: 0;
+    z-index: 2;
+}
+.box{
+   float: left;
+   width: 33%;
+   height: 400px;
+   background: white;
+   margin: 0;
+   animation: shift 5.6s ease-in-out infinite alternate;
+
+   box-shadow: 0;
+   opacity: 1;
+ }
+
+
+@for $i from 17 through 1 {
+  .box:nth-child(#{$i}){
+   animation-delay: $i * .6s
+
+   }
+
+}
+
+@keyframes shift{
+  0%{
+    transform: scale(1) rotateX(0deg) rotateY(0deg)
+  }
+  100%{
+    transform: scale(0.95) rotateX(5deg) rotateY(5deg);
+    box-shadow: -10px 10px 30px -10px;
+    opacity: .8;
+  }
+  }

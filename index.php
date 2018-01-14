@@ -15,19 +15,25 @@
 get_header(); ?>
 
 <div id="content_wrap" class="">
+	<!-- particles.js container -->
+
+<div id="particles-js"></div>
 
 <div id="app"></div>
 
-
 		<main id="main" class="site-main ">
 		<!--<div class="start_image" ><img class="screen_fit" src="<?php bloginfo('template_url');?>/src/img/logo_form.png" /> </div>-->
-		<div class="container">
+		<div class="content_header container">
+						<h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;">This Website will be never done!</h2>
+						<h4  style="color: #887F00;font-weight: 100;">following the prinziples of chaos -  the only habit is to steady move ahead  </b></h4>
+
+				</div>
+
+				<div class="container">
 			<?php
 					if ( is_front_page() ) {
-								echo'<h2>Only Displays On The Front Page</h2>';
+								echo'';
 			?>
-
-
 
 							<div class=" hidden" id="content_sneakpeak">
 									<?php $query = array(
@@ -83,7 +89,17 @@ get_header(); ?>
 					<?php //get_template_part( 'loop/loop-error' ); ?>
 					<?php endif; ?>
 			</div>
+			<div class="background_plates">
+				<?php
+				for ($i = 1; $i <= 20; $i++) {
+						?>
+						<div class="box">
 
+						</div>
+						<?php
+					}
+				 ?>
+			</div>
 		</main><!-- #main -->
 	<?php
 	}
@@ -92,7 +108,8 @@ get_header(); ?>
 
 
 
-
+  <canvas class="particle_background"></canvas>
+	<canvas id="point_mesh"></canvas>
 <div id="Orbit"><div class="overlay"></div></div>
 
 <?php
