@@ -104945,29 +104945,36 @@ jQuery(document).ready(function($) {
 /* 271 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {$(document).ready(function() {
+/* WEBPACK VAR INJECTION */(function($, jQuery) {$(document).ready(function() {
   $('.word_slider').slick({slidesToShow: 1, autoplay: true, arrows: false, fade: true, cssEase: 'linear'});
   $('.prev_slider').slick({slidesToShow: 3, autoplay: true, arrows: false, fade: true, cssEase: 'linear'});
 
   $('.mansory_slider').slick({slidesToShow: 5, autoplay: true, arrows: true, fade: true, cssEase: 'linear'});
-  $('#main_images').find("img").on('click', function(e) {
 
+  $('#main_images').find("img").on('click', function(e) {
     $('#main_images').toggleClass('masonry-grid');
     $('#main_images').toggleClass('mansory_slider');
     //e.preventDefault();
-
     $('.mansory_slider').slick({slidesToShow: 5, autoplay: true, arrows: true, fade: true, cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'});
   });
 
 
-    $('#MainSlider').carousel({
-      interval: 20000
+  jQuery('#MainSlider').carousel({
+      interval: 2000
+
     })
+    jQuery('#MainSlider').on('slide',function(e){
 
+      var active = jQuery(e.target).find('.carousel-inner > .active');
+ var from = active.index();
+ var next = jQuery(e.relatedTarget);
+ var to = next.index();
+ console.log('w',next);
 
+     });
 });
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4), __webpack_require__(4)))
 
 /***/ }),
 /* 272 */
