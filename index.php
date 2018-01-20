@@ -23,39 +23,37 @@ get_header(); ?>
     <?php } ?>
   </div>
 
-    <div class="jumbotron">
-      <img class="d-block img-fluid" src="https://kniessner.com/complex/wp-content/uploads/2016/12/20151031-PA310058.jpg" alt="First slide">
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner" role="listbox">
-      <?php if ( $post->post_type == 'data-design' && $post->post_status == 'publish' ) {
-              $attachments = get_posts( array(
-                  'post_type' => 'attachment',
-                  'posts_per_page' => -1,
-                  'post_parent' => $post->ID,
-                  'exclude'     => get_post_thumbnail_id()
-              ) );
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner" role="listbox">
+            <?php if ( $post->post_type == 'data-design' && $post->post_status == 'publish' ) {
+                    $attachments = get_posts( array(
+                        'post_type' => 'attachment',
+                        'posts_per_page' => -1,
+                        'post_parent' => $post->ID,
+                        'exclude'     => get_post_thumbnail_id()
+                    ) );
 
-              if ( $attachments ) {
-                  foreach ( $attachments as $attachment ) {
-                      $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
-                      $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', true );
-                      $largeimg = wp_get_attachment_link( $attachment->ID, 'large', true );
-                      echo $largeimg;
-                      ?>
-                      <div class="carousel-item active">
-                        <img class="d-block img-fluid" src="<?php echo $thumbimg; ?>" alt="First slide">
-                      </div>
-                      <?php
-                      echo '<li class="' . $class . ' data-design-thumbnail">' . $thumbimg . '</li>';
-                  }
+                    if ( $attachments ) {
+                        foreach ( $attachments as $attachment ) {
+                            $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
+                            $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', true );
+                            $largeimg = wp_get_attachment_link( $attachment->ID, 'large', true );
+                            echo $largeimg;
+                            ?>
+                            <div class="carousel-item active">
+                              <img class="d-block img-fluid" src="<?php echo $thumbimg; ?>" alt="First slide">
+                            </div>
+                            <?php
+                            echo '<li class="' . $class . ' data-design-thumbnail">' . $thumbimg . '</li>';
+                        }
 
-              }
-          }
-      ?>
-  </div>
-</div>
+                    }
+                }
+            ?>
+        </div>
+      </div>
 
-    </div>
+
     <main id="main" class="site-main">
     		<!--<div class="start_image" ><img class="screen_fit" src="<?php bloginfo('template_url');?>/src/img/logo_form.png" /> </div>-->
 
