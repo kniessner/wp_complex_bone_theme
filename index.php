@@ -18,7 +18,7 @@ get_header(); ?>
 	<!-- particles.js container -->
   <div class="content_header container">
     <?php if ( is_front_page() ) { ?>
-          <h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;">This Website will be never done!</h2>
+          <h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;">This NEVER FINISHED WEBSITE!</h2>
           <h4  style="color: #fff;font-weight: 100;">following the prinziples of chaos -  the only habit is to steady move ahead  </b></h4>
     <?php } ?>
   </div>
