@@ -37,6 +37,7 @@ $colors: $colour1, $colour2, $colour3, $colour4;
   float: left;
   mix-blend-mode: saturation;
   display: inline-block;
+
 }
 
 .plate {
@@ -57,6 +58,9 @@ $colors: $colour1, $colour2, $colour3, $colour4;
     width: 100%;
     height: 100%;
     animation: shift 15.6s ease-in-out infinite alternate;
+    background-position: center;
+    background-clip: content-box;
+    background-size: cover;
     //  background: rgba(250, 250, 250, 0.8);
   }
 }

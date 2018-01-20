@@ -52,7 +52,7 @@ $y++;
                               ?>
                               </div>
                               <?php } else {  ?>
-                              <div class="carousel-item">
+                              <div class="carousel-item" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
                                 <?php
                                   echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
                                 ?>

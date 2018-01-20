@@ -12,4 +12,10 @@ $(document).ready(function() {
     $('.mansory_slider').slick({slidesToShow: 5, autoplay: true, arrows: true, fade: true, cssEase: 'cubic-bezier(0.7, 0, 0.3, 1)'});
   });
 
+
+    $('#carouselExampleSlidesOnly').carousel({
+      interval: 20000
+    })
+
+
 });
