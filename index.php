@@ -39,32 +39,43 @@ get_header(); ?>
                             $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
                             $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', false );
                             $largeimg = wp_get_attachment_link( $attachment->ID, 'large', false );
-                            //echo $largeimg;
+                            echo $largeimg;
                               $y++;
                             if ($y === 1) { ?>
-                              <div class="carousel-item active ">
-                              <?php echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                              <div class="carousel-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );];?>);">
+
+                              <?php
+                                echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
                               ?>
                               </div>
                               <?php }else{  ?>
                               <div class="carousel-item">
-                                <?php echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
-                                 ?>
+                                <?php
+                                  echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                                ?>
                               </div>
                             <?php }
 
                         }
+                      ?>
+                      <div class="background_plates">
+                      <?php
+                          foreach ( $attachments as $attachment ) {
+
+                                ?>
+                                <div class="plate">
+                                      <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );];?>);"></div>
+                                </div>
+                                <?php
+                          }
+                      ?>
+                      </div>
+                      <?php
                     }
             ?>
+          </div>
         </div>
-        <div class="background_plates">
-          <?php for ($i = 1; $i <= 9; $i++) { ?>
-              <div class="plate">
-                    <div class="plate_content"></div>
-              </div>
-          <?php }  ?>
-        </div>
-      </div>
+
 
 
     <main id="main" class="site-main">
