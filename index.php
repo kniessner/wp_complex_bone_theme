@@ -43,13 +43,13 @@ get_header(); ?>
                               $y++;
                             if ($y === 1) { ?>
                               <div class="item active ">
-                              <?php wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
-                            ?>
+                              <?php echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                              ?>
                               </div>
                               <?php }else{  ?>
                               <div class="item">
-                                <?php wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
-                              ?>
+                                <?php echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                                 ?>
                               </div>
                             <?php }
 
