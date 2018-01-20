@@ -101,7 +101,12 @@ if( function_exists('acf_add_options_page') ) {
 add_action( 'admin_menu', 'register_Workspace' );
 function register_Workspace() {
   // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
-  add_menu_page( 'Workspace', 'Workspace', 'manage_options', 'work', '', 'dashicons-welcome-widgets-menus', 1 );
+add_menu_page( 'Workspace', 'Workspace', 'manage_options', 'work', '', 'dashicons-welcome-widgets-menus' );
+
+
+add_submenu_page( 'work', 'Web', 'Web',
+'manage_options', 'edit.php?post_type=photo_collections', NULL );
+
 
 add_submenu_page( 'work', 'Projects', 'Projects',
 'manage_options', 'edit.php?post_type=projects', NULL );
@@ -115,6 +120,9 @@ add_submenu_page( 'work', 'Snippets', 'Snippets',
 
 add_submenu_page( 'work', 'Scripts', 'Scripts',
 'manage_options', 'edit.php?post_type=scripts', NULL );
+
+add_submenu_page( 'work', 'Web', 'Web',
+'manage_options', 'edit.php?post_type=web_storage', NULL );
 }
 
 
