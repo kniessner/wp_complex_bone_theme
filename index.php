@@ -17,8 +17,11 @@ get_header(); ?>
 <div id="content_wrap" class="">
 	<!-- particles.js container -->
   <div class="content_header container">
-    <?php if ( is_front_page() ) { ?>
-          <h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;">This NEVER FINISHED WEBSITE!</h2>
+    <?php
+    the_title( '<h4>', '</h4>' );
+    if ( is_front_page() ) {
+    ?>
+          <h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;"> A NEVER FINAL WEBSITE!</h2>
           <h4  style="color: #fff;font-weight: 100;">following the prinziples of chaos -  the only habit is to steady move ahead  </b></h4>
     <?php } ?>
   </div>
@@ -35,20 +38,20 @@ get_header(); ?>
                     $y = 0;
                     if ( $attachments ) {
                         foreach ( $attachments as $attachment ) {
-
+$y++;
                             $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
                             $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', false );
                             $largeimg = wp_get_attachment_link( $attachment->ID, 'large', false );
-                            echo $largeimg;
-                              $y++;
+                      //      echo $largeimg;
+
                             if ($y === 1) { ?>
-                              <div class="carousel-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );];?>);">
+                              <div class="carousel-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
 
                               <?php
                                 echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
                               ?>
                               </div>
-                              <?php }else{  ?>
+                              <?php } else {  ?>
                               <div class="carousel-item">
                                 <?php
                                   echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
@@ -108,17 +111,18 @@ get_header(); ?>
 
 </div>
 
-
-  <div id="particles-js"></div>
-  <canvas class="particle_background"></canvas>
-	<canvas id="point_mesh"></canvas>
-  <div id="Orbit">
-    <div class="overlay"></div>
+  <div class="style_overlay">
+    <div id="particles-js"></div>
+    <canvas class="particle_background"></canvas>
+  	<canvas id="point_mesh"></canvas>
+    <div id="Orbit"></div>
   </div>
-  <?php
-    $random_attachments = array_rand( $attachments, sizeof($attachments) );
-    echo wp_get_attachment_image( $random_attachments[1]->ID, 'large', "", array( "class" => "background_image screen_fit" ) );
 
+  <?php
+    if ( $attachments ) {
+      $random_attachments = array_rand( $attachments, sizeof($attachments) );
+      echo wp_get_attachment_image( $random_attachments[1]->ID, 'large', "", array( "class" => "background_image screen_fit" ) );
+    }
    ?>
 <?php
 get_footer();
