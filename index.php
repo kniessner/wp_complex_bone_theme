@@ -72,10 +72,10 @@ get_header(); ?>
                               $y++;
                               $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
                               if ($y === 1) { ?>
-                                <div class="carousel-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+                                <div class="bg-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
                                 </div>
                                 <?php } else {  ?>
-                                <div class="carousel-item" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+                                <div class="bg-item" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
                                 </div>
                               <?php
                                }
