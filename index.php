@@ -35,13 +35,14 @@ get_header(); ?>
                        //  'post_parent' => $post->ID,
                         //'exclude'     => get_post_thumbnail_id()
                     ) );
-                    $y = 0;
+
                     if ( $attachments ) {
 
 
                       ?>
                     <div class="carousel-inner" role="listbox">
                       <?php
+                        $y = 0;
                         foreach ( $attachments as $attachment ) {
                             $y++;
                             $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
