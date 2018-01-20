@@ -61,6 +61,7 @@ $y++;
 
                         }
                       ?>
+                      </div>
                       <div class="background_plates">
                       <?php
                           foreach ( $attachments as $attachment ) {
@@ -76,7 +77,7 @@ $y++;
                       <?php
                     }
             ?>
-          </div>
+
         </div>
 
 
