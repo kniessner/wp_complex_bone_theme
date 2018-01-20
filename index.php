@@ -28,22 +28,22 @@ get_header(); ?>
             <?php
                     $attachments = get_posts( array(
                         'post_type' => 'attachment',
-                        'posts_per_page' => -1,
-                      //  'post_parent' => $post->ID,
-                        'exclude'     => get_post_thumbnail_id()
+                        'posts_per_page' => 30,
+                       //  'post_parent' => $post->ID,
+                        //'exclude'     => get_post_thumbnail_id()
                     ) );
 
                     if ( $attachments ) {
                         foreach ( $attachments as $attachment ) {
-                          dump($attachment);
+
                             $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
                             $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', true );
                             $largeimg = wp_get_attachment_link( $attachment->ID, 'large', true );
                             echo $largeimg;
+
                             if ($y === 1) { ?>
                               <div class="item active">
                                   <img class="d-block img-fluid" src="<?php echo $thumbimg; ?>" alt="First slide">
-                                </div>
                               </div>
                               <?php }else{  ?>
                               <div class="item">
@@ -51,11 +51,8 @@ get_header(); ?>
                               </div>
                             <?php }
 
-                        //    echo '<li class="' . $class . ' data-design-thumbnail">' . $thumbimg . '</li>';
                         }
-
                     }
-
             ?>
         </div>
       </div>
