@@ -42,12 +42,12 @@ get_header(); ?>
                             //echo $largeimg;
                               $y++;
                             if ($y === 1) { ?>
-                              <div class="item active ">
+                              <div class="carousel-item active ">
                               <?php echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
                               ?>
                               </div>
                               <?php }else{  ?>
-                              <div class="item">
+                              <div class="carousel-item">
                                 <?php echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
                                  ?>
                               </div>
