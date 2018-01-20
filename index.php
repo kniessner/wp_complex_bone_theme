@@ -18,7 +18,16 @@ get_header(); ?>
 	<!-- particles.js container -->
 
 <div id="particles-js"></div>
-
+<div id="editor"></div>
+<div id="editor"></div>
+<script>
+  new Jotted(document.querySelector('#editor'), {
+    files: [{
+      type: 'html',
+      url: 'code.html'
+    }]
+  })
+</script>
 <div id="app"></div>
 
 		<main id="main" class="site-main ">
@@ -26,16 +35,19 @@ get_header(); ?>
 		<div class="content_header container">
 			<h1 style="border-bottom:1px solid silver;text-align: left;padding: 10px;background: none;color: black;">KNIESSNER COMPLEX
 			</h1>
-						<h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;">This Website will be never done!</h2>
+      <?php
+					if ( is_front_page() ) {
+			?>
+          	<h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;">This Website will be never done!</h2>
 						<h4  style="color: #fff;font-weight: 100;">following the prinziples of chaos -  the only habit is to steady move ahead  </b></h4>
-
+            <?php
+            	}
+            ?>
 				</div>
 
 				<div class="container">
-			<?php
-					if ( is_front_page() ) {
-								echo'';
-			?>
+
+
 
 							<div class=" hidden" id="content_sneakpeak">
 									<?php $query = array(
@@ -50,7 +62,7 @@ get_header(); ?>
 														?>
 														<div class="pres_panel">
 																		<?php
-																		 //	the_title( '<h4>', '</h4>' );
+																			the_title( '<h4>', '</h4>' );
 																		?>
 														</div>
 										<?php endwhile; ?>
@@ -79,10 +91,10 @@ get_header(); ?>
 */
 ?>
 
-			<div id="static_content" class="hidden">
+			<div id="static_content" >
 					<?php	if ( have_posts() ) : ?>
 			             <?php while ( have_posts() ) : the_post(); ?>
-								<div class="container">
+								<div class="container" id="content">
 									<?php the_content(); ?>
 								</div>
 					    <?php endwhile; ?>
@@ -91,21 +103,22 @@ get_header(); ?>
 					<?php //get_template_part( 'loop/loop-error' ); ?>
 					<?php endif; ?>
 			</div>
-			<div class="background_plates">
-				<?php
-				for ($i = 1; $i <= 20; $i++) {
-						?>
-						<div class="plate">
-									<div class="plate_content">
-									</div>
-						</div>
-						<?php
-					}
-				 ?>
-			</div>
+
 		</main><!-- #main -->
+		<div class="background_plates">
+			<?php
+			for ($i = 1; $i <= 20; $i++) {
+					?>
+					<div class="plate">
+								<div class="plate_content">
+								</div>
+					</div>
+					<?php
+				}
+			 ?>
+		</div>
 	<?php
-	}
+
 ?>
 		</div>
 

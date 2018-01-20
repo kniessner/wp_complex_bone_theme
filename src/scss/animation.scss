@@ -1,78 +1,84 @@
 $colour1: rgb(255,255,255); // white
 $colour2: rgb(255,0,0); // red
 $colour3: rgb(135,206,250); // sky blue
-$colour4: rgb(255,255,0);   // yellow
-
+$colour4: rgb(255,255,0); // yellow
 $colors: $colour1, $colour2, $colour3, $colour4;
+
 #point_mesh {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0px;
+  top: 0;
   left: 0;
   display: block;
   z-index: 1;
-	width: 100% !important;
+  width: 100% !important;
 }
+
 .particle_background {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0px;
-    left: 0;
-    display: block;
-		opacity: 0.7;
-    z-index: 1;
-		background: linear-gradient(165deg, #e5e5e5, #3b4245, #404040, #bfbfbf);
-}
-.background_plates {
+  position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  opacity: 0.7;
+  z-index: 1;
+  background: linear-gradient(165deg, #e5e5e5, #3b4245, #404040, #bfbfbf);
+}
+
+.background_plates {
+  width: 100%;
+  height: auto;
   position: relative;
   margin: 50px 0;
   left: 0;
   z-index: 2;
   float: left;
-  padding: 50px;
-}
-.plate{
-   float: left;
-   width: 33.33%;
- height: 400px;
- margin: 0;
- animation: shift 5.6s ease-in-out infinite alternate;
- box-shadow: 0;
- opacity: 1;
- padding: 30px;
-  border-radius: 200px;
- mix-blend-mode: difference;
- background: #313131;
- background: linear-gradient(165deg, #e5e5e5, #3b4245, #404040, #bfbfbf);
-   .plate_content{
-     background: white;
-     width: 100%;
-     height: 100%;
-   }
- }
-
-
-@for $i from 17 through 1 {
-  .plate:nth-child(#{$i}){
-   animation-delay: $i * .6s
-
-   }
-
+  //padding: 50px;
+  background: rgba(50, 50, 50, 0.5);
+  mix-blend-mode: saturation;
+  display: inline-block;
 }
 
-@keyframes shift{
-  0%{
-    transform: scale(1) rotateX(0deg) rotateY(0deg)
+.plate {
+  float: left;
+  width: 33.33%;
+  height: 400px;
+  margin: 0;
+  animation: shift 15.6s ease-in-out infinite alternate;
+  animation-delay: 0s;
+  box-shadow: 0;
+  opacity: 1;
+  padding: 1;
+  border-radius: 0;
+  mix-blend-mode: difference;
+  background: #313131;
+  background: linear-gradient(165deg, #e5e5e5, #3b4245, #404040, #bfbfbf);
+background: rgba(200, 200, 200, 0.8);
+  .plate_content {
+    background: white;
+    width: 100%;
+    height: 100%;
+    animation: shift 15.6s ease-in-out infinite alternate;
+    background: rgba(250, 250, 250, 0.8);
   }
-  100%{
+}
+@for $i from 17 through 1 {
+  .plate:nth-child(#{$i}) {
+    animation-delay: $i * 1.6s;
+  }
+}
+@keyframes shift {
+  0% {
+    transform: scale(1) rotateX(0deg) rotateY(0deg);
+  }
+
+  100% {
     transform: scale(0.95) rotateX(5deg) rotateY(5deg);
     //box-shadow: -10px 10px 30px -10px;
-    opacity: .8;
-    padding: 10px;
-     border-radius: 0px;
+    opacity: 0.8;
+    padding:5;
+    border-radius: 0;
   }
-  }
+}
