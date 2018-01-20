@@ -114443,7 +114443,7 @@ module.exports = registerRoute;
         var scrollTop = $(window).scrollTop();
         var imgPos = scrollTop / 2 + 'px';
         $('#MainSlider').find('img').css('transform', 'translateY(' + imgPos + ')');
-    });
+});
 
 
    function simpleParallax(intensity, element) {
@@ -114462,8 +114462,10 @@ $(document).ready(function($) {
 
   var parallaxplate = $('.container'),
       parallaxQuantity = parallaxplate.length;
-      simpleParallax(2, $('.container'));
+//    simpleParallax(2, $('.container'));
       simpleParallax(-2, slider);
+      simpleParallax(-2, $('header'));
+      simpleParallax(2, $('#logo'));
 
 
   $(window).on('scroll', function () {
