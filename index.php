@@ -40,12 +40,18 @@ get_header(); ?>
                             $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', true );
                             $largeimg = wp_get_attachment_link( $attachment->ID, 'large', true );
                             echo $largeimg;
-                            ?>
-                            <div class="carousel-item active">
-                              <img class="d-block img-fluid" src="<?php echo $thumbimg; ?>" alt="First slide">
-                            </div>
-                            <?php
-                            echo '<li class="' . $class . ' data-design-thumbnail">' . $thumbimg . '</li>';
+                            if ($y === 1) { ?>
+                              <div class="item active">
+                                  <img class="d-block img-fluid" src="<?php echo $thumbimg; ?>" alt="First slide">
+                                </div>
+                              </div>
+                              <?php }else{  ?>
+                              <div class="item">
+                                  <img class="d-block img-fluid" src="<?php echo $thumbimg; ?>" alt="First slide">
+                              </div>
+                            <?php }
+
+                        //    echo '<li class="' . $class . ' data-design-thumbnail">' . $thumbimg . '</li>';
                         }
 
                     }
@@ -61,7 +67,7 @@ get_header(); ?>
         	<div class="container">
         			 <div class="" id="content_sneakpeak">
         					<?php $query = array(
-        											//'post_type' => array('projects','posts'),
+        							'post_type' => array('projects','posts'),
         						  'post_status' => array('publish', 'pending', 'draft', 'auto-draft', 'future', 'private', 'inherit', 'trash')
         						);
         						$loop = new WP_Query($query);
