@@ -42,12 +42,12 @@ get_header(); ?>
                             echo $largeimg;
 
                             if ($y === 1) { ?>
-                              <div class="item active">
-                                  <img class="d-block img-fluid" src="<?php echo $thumbimg; ?>" alt="First slide">
+                              <div class="item active ">
+                                  <img class="d-block img-fluid screen_fit" src="<?php echo $thumbimg; ?>" alt="First slide">
                               </div>
                               <?php }else{  ?>
                               <div class="item">
-                                  <img class="d-block img-fluid" src="<?php echo $thumbimg; ?>" alt="First slide">
+                                  <img class="d-block img-fluid screen_fit" src="<?php echo $thumbimg; ?>" alt="First slide">
                               </div>
                             <?php }
 
