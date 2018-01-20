@@ -62,8 +62,6 @@ add_action('wp_enqueue_scripts', 'complex_add_scripts');
 			wp_enqueue_script( 'bundle', get_template_directory_uri() . '/core/js/bundle.js', array('jquery'), 1, false );
 	   }
 
-// Enable the option show in rest
-add_filter( 'acf/rest_api/field_settings/show_in_rest', '__return_true' );
 
 // Enable the option edit in rest
 add_filter( 'acf/rest_api/field_settings/edit_in_rest', '__return_true' );
