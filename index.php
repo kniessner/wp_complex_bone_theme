@@ -38,21 +38,20 @@ get_header(); ?>
                     $y = 0;
                     if ( $attachments ) {
                         foreach ( $attachments as $attachment ) {
-$y++;
+                            $y++;
                             $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
                             $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', false );
                             $largeimg = wp_get_attachment_link( $attachment->ID, 'large', false );
                       //      echo $largeimg;
 
                             if ($y === 1) { ?>
-                              <div class="carousel-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
-
-                              <?php
-                                echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
-                              ?>
+                              <div class="carousel-item active">
+                                  <?php
+                                    echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                                  ?>
                               </div>
                               <?php } else {  ?>
-                              <div class="carousel-item" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+                              <div class="carousel-item" >
                                 <?php
                                   echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
                                 ?>
@@ -61,26 +60,45 @@ $y++;
 
                         }
                       ?>
-                      </div>
-                      <div class="background_plates">
-                      <?php
+            </div>
+            <div class="carousel-background" role="listbox">
+              <?php
+                      $y = 0;
+                      if ( $attachments ) {
                           foreach ( $attachments as $attachment ) {
+                              $y++;
+                              $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
+                              if ($y === 1) { ?>
+                                <div class="carousel-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
 
-                                ?>
-                                <div class="plate">
-                                      <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);"></div>
                                 </div>
-                                <?php
+                                <?php } else {  ?>
+                                <div class="carousel-item" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+                                </div>
+                              <?php }
+
                           }
-                      ?>
-                      </div>
+                        ?>
+              </div>
+
                       <?php
                     }
             ?>
 
         </div>
 
+        <div class="background_plates">
+                <?php
+                    foreach ( $attachments as $attachment ) {
 
+                          ?>
+                          <div class="plate">
+                                <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);"></div>
+                          </div>
+                          <?php
+                    }
+                ?>
+        </div>
 
     <main id="main" class="site-main">
     		<!--<div class="start_image" ><img class="screen_fit" src="<?php bloginfo('template_url');?>/src/img/logo_form.png" /> </div>-->

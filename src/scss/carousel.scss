@@ -17,13 +17,15 @@
     background: rgba(0, 0, 0, 0.7);
     padding: 40px;
     background-position: center;
-    background-clip: content-box;
     background-size: cover;
     height: 100%;
+    background-blend-mode: multiply;
+    float: left;
    .img-fluid {
       max-width: 100%;
       width: auto;
       max-height: 100vh;
+      display:
       //width: 100%;
   }
 }
