@@ -41,7 +41,7 @@
 
 <!-- *******   Header
 ********************* -->
-<header data-toggle="affix" class="container" id="header_panel">
+<header data-toggle="affix" class="" id="header_panel">
 
   <div class="inner_header">
           <div class="container">
