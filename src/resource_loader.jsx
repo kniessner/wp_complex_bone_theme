@@ -17,6 +17,19 @@ import $ from 'jquery';
 
 import 'masonry-layout'
 
+import Jotted from 'jotted';
+import 'jotted/jotted.css';
+
+window.onload = function() {
+
+  new Jotted(
+    document.querySelector('#editor'), {
+    files: [{
+      type: 'html',
+      url: 'code.html'
+    }]
+  })
+}
 /*
 //////////////	THREE JS
 */

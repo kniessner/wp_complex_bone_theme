@@ -37,7 +37,6 @@ module.exports = function(env) {
                 {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"},
                 {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,loader: "url?limit=10000&mimetype=image/svg+xml"},
                 {test: /\.jsx?$/, loader: 'babel-loader', exclude: /node_modules/, query: { presets: ['react', 'es2015', 'stage-1']}},
-                {test: /particles\.js/,loader: 'exports?particlesJS=window.particlesJS,pJSDom=window.pJSDom'}
                 {test: /\.(jpe?g|png|gif|svg)$/i,loaders: [ 'file-loader?hash=sha512&digest=hex&name=[hash].[ext]','image-webpack-loader?bypassOnDebug&optimizationLevel=7&interlaced=false']}
             ],
             rules: [
