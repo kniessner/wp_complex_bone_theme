@@ -19,7 +19,6 @@ get_header(); ?>
 
 <div id="particles-js"></div>
 <div id="editor"></div>
-<div id="editor"></div>
 <script>
   new Jotted(document.querySelector('#editor'), {
     files: [{
