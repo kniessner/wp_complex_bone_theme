@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
 
-    $('#carouselExampleSlidesOnly').carousel({
+    $('#MainSlider').carousel({
       interval: 20000
     })
 
