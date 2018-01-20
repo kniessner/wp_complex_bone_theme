@@ -67,7 +67,7 @@ $y++;
 
                                 ?>
                                 <div class="plate">
-                                      <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );];?>);"></div>
+                                      <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);"></div>
                                 </div>
                                 <?php
                           }
