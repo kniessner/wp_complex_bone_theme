@@ -29,9 +29,8 @@ $colors: $colour1, $colour2, $colour3, $colour4;
 
 .background_plates {
   width: 100%;
-  height: auto;
-  position: absolute;
-  margin: 50px 0;
+  height: 100%;
+  position: absolute; //  margin: 50px 0;
   left: 0;
   top: 0;
   z-index: 2;

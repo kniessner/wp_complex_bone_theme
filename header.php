@@ -90,6 +90,6 @@
   <div class=" l_square"></div>
 
 </header>
-<h1 style="border-bottom:1px solid silver;text-align: left;padding: 10px;background: none;color: black;">
+<!-- <h1 style="border-bottom:1px solid silver;text-align: left;padding: 10px;background: none;color: black;">
   KNIESSNER COMPLEX
-</h1>
+</h1> -->
