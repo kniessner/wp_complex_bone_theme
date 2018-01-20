@@ -104,9 +104,6 @@ function register_Workspace() {
 add_menu_page( 'Workspace', 'Workspace', 'manage_options', 'work', '', 'dashicons-welcome-widgets-menus', 2 );
 
 
-add_submenu_page( 'work', 'Web', 'Web',
-'manage_options', 'edit.php?post_type=photo_collections', NULL );
-
 
 add_submenu_page( 'work', 'Projects', 'Projects',
 'manage_options', 'edit.php?post_type=projects', NULL );
@@ -124,7 +121,7 @@ add_submenu_page( 'work', 'Scripts', 'Scripts',
 add_submenu_page( 'work', 'Web', 'Web',
 'manage_options', 'edit.php?post_type=web_storage', NULL );
 
-add_submenu_page( 'media', 'photo_collections', 'photo_collections',
+add_submenu_page( 'upload', 'photo_collections', 'photo_collections',
 'manage_options', 'edit.php?post_type=photo_collections', NULL );
 }
 
