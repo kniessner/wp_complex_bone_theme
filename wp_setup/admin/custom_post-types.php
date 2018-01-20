@@ -52,7 +52,7 @@ function create_custom_post_types() {
 				'show_in_admin_bar'     => true,
 				'show_in_nav_menus'     => true,
 				'can_export'            => true,
-				'has_archive'           => true,		
+				'has_archive'           => true,
 				'exclude_from_search'   => false,
 				'publicly_queryable'    => true,
 				'capability_type'       => 'page',
@@ -100,13 +100,13 @@ function create_custom_post_types() {
 				'hierarchical'          => true,
 				'public'                => true,
 				'show_ui'               => true,
-				'show_in_menu'          => true,
+				'show_in_menu'          => false,
 				'menu_position'         => 5,
 				'menu_icon'             => 'dashicons-clipboard',
 				'show_in_admin_bar'     => true,
 				'show_in_nav_menus'     => true,
 				'can_export'            => true,
-				'has_archive'           => true,		
+				'has_archive'           => true,
 				'exclude_from_search'   => false,
 				'publicly_queryable'    => true,
 				'capability_type'       => 'page',
@@ -162,7 +162,7 @@ function create_custom_post_types() {
 				'show_in_admin_bar'     => true,
 				'show_in_nav_menus'     => true,
 				'can_export'            => true,
-				'has_archive'           => true,		
+				'has_archive'           => true,
 				'exclude_from_search'   => false,
 				'publicly_queryable'    => true,
 				'capability_type'       => 'page',
@@ -170,7 +170,7 @@ function create_custom_post_types() {
 				'rest_base'             => 'Scripts',
 				'rest_controller_class' => 'WP_REST_Posts_Scripts',
 			);
-	
+
 	register_post_type( 'scripts', $args );
 
 		$labels = array(
@@ -217,7 +217,7 @@ function create_custom_post_types() {
 				'show_in_admin_bar'     => true,
 				'show_in_nav_menus'     => true,
 				'can_export'            => true,
-				'has_archive'           => true,		
+				'has_archive'           => true,
 				'exclude_from_search'   => false,
 				'publicly_queryable'    => true,
 				'capability_type'       => 'page',
@@ -268,7 +268,7 @@ function create_custom_post_types() {
 					'show_in_admin_bar'     => true,
 					'show_in_nav_menus'     => true,
 					'can_export'            => true,
-					'has_archive'           => true,		
+					'has_archive'           => true,
 					'exclude_from_search'   => false,
 					'publicly_queryable'    => true,
 					'capability_type'       => 'page',
@@ -313,12 +313,12 @@ function create_custom_post_types() {
 					'public'                => true,
 					'show_ui'               => true,
 					'show_in_menu'          => true,
-					'menu_position'         => 5,
+					'menu_position'         => 6,
 					'menu_icon'             => 'dashicons-images-alt',
 					'show_in_admin_bar'     => true,
 					'show_in_nav_menus'     => true,
 					'can_export'            => true,
-					'has_archive'           => true,		
+					'has_archive'           => true,
 					'exclude_from_search'   => false,
 					'publicly_queryable'    => true,
 					'capability_type'       => 'page',
@@ -365,7 +365,7 @@ function create_custom_post_types() {
 
 function wpsd_add_projects_args() {
     global $wp_post_types;
- 
+
     $wp_post_types['projects']->show_in_rest = true;
     $wp_post_types['projects']->rest_base = 'projects';
     $wp_post_types['projects']->rest_controller_class = 'WP_REST_Posts_Controller';

@@ -123,6 +123,9 @@ add_submenu_page( 'work', 'Scripts', 'Scripts',
 
 add_submenu_page( 'work', 'Web', 'Web',
 'manage_options', 'edit.php?post_type=web_storage', NULL );
+
+add_submenu_page( 'media', 'photo_collections', 'photo_collections',
+'manage_options', 'edit.php?post_type=photo_collections', NULL );
 }
 
 
