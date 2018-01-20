@@ -32,22 +32,24 @@ get_header(); ?>
                        //  'post_parent' => $post->ID,
                         //'exclude'     => get_post_thumbnail_id()
                     ) );
-
+                    $y = 0;
                     if ( $attachments ) {
                         foreach ( $attachments as $attachment ) {
 
                             $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
-                            $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', true );
-                            $largeimg = wp_get_attachment_link( $attachment->ID, 'large', true );
-                            echo $largeimg;
-
+                            $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', false );
+                            $largeimg = wp_get_attachment_link( $attachment->ID, 'large', false );
+                            //echo $largeimg;
+                              $y++;
                             if ($y === 1) { ?>
                               <div class="item active ">
-                                  <img class="d-block img-fluid screen_fit" src="<?php echo $thumbimg; ?>" alt="First slide">
+                              <?php wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                            ?>
                               </div>
                               <?php }else{  ?>
                               <div class="item">
-                                  <img class="d-block img-fluid screen_fit" src="<?php echo $thumbimg; ?>" alt="First slide">
+                                <?php wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                              ?>
                               </div>
                             <?php }
 
