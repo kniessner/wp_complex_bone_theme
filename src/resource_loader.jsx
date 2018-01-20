@@ -17,6 +17,13 @@ import $ from 'jquery';
 
 import 'masonry-layout'
 
+import scrollify from 'scrollify';
+window.onload = function() {
+      $.scrollify({
+        section : ".carousel-item",
+      });
+};
+
 import Jotted from 'jotted';
 import 'jotted/jotted.css';
 
@@ -68,7 +75,7 @@ import './scss/style.scss'
 *************  Init own actions / #JS  *************
 */
 
-
+import './js/animations'
 import './js/grid'
 import './js/slider'
 
