@@ -101,7 +101,7 @@ if( function_exists('acf_add_options_page') ) {
 add_action( 'admin_menu', 'register_Workspace' );
 function register_Workspace() {
   // add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
-add_menu_page( 'Workspace', 'Workspace', 'manage_options', 'work', '', 'dashicons-welcome-widgets-menus' );
+add_menu_page( 'Workspace', 'Workspace', 'manage_options', 'work', '', 'dashicons-welcome-widgets-menus', 2 );
 
 
 add_submenu_page( 'work', 'Web', 'Web',
