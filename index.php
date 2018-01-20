@@ -143,4 +143,5 @@ get_header(); ?>
       echo wp_get_attachment_image( $random_attachments[1]->ID, 'large', "", array( "class" => "background_image screen_fit" ) );
     }
    ?>
+   
 <?php get_footer(); ?>
