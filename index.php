@@ -29,12 +29,13 @@ get_header(); ?>
                     $attachments = get_posts( array(
                         'post_type' => 'attachment',
                         'posts_per_page' => -1,
-                        'post_parent' => $post->ID,
+                      //  'post_parent' => $post->ID,
                         'exclude'     => get_post_thumbnail_id()
                     ) );
 
                     if ( $attachments ) {
                         foreach ( $attachments as $attachment ) {
+                          dump($attachment);
                             $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
                             $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', true );
                             $largeimg = wp_get_attachment_link( $attachment->ID, 'large', true );
@@ -48,7 +49,7 @@ get_header(); ?>
                         }
 
                     }
-                
+
             ?>
         </div>
       </div>
@@ -78,21 +79,6 @@ get_header(); ?>
         						</div>
         				</div>
         	   </div>
-
-
-    			<div id="content" >
-    					<?php	if ( have_posts() ) : ?>
-    			             <?php while ( have_posts() ) : the_post(); ?>
-    								<div class="container" >
-    									<?php the_content(); ?>
-    								</div>
-    					    <?php endwhile; ?>
-
-    			        <?php else : ?>
-    					<?php //get_template_part( 'loop/loop-error' ); ?>
-    					<?php endif; ?>
-    			</div>
-
 
     </main><!-- #main -->
   <div id="app"></div>
