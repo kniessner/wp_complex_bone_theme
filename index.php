@@ -57,6 +57,13 @@ get_header(); ?>
                     }
             ?>
         </div>
+        <div class="background_plates">
+          <?php for ($i = 1; $i <= 9; $i++) { ?>
+              <div class="plate">
+                    <div class="plate_content"></div>
+              </div>
+          <?php }  ?>
+        </div>
       </div>
 
 
@@ -90,17 +97,13 @@ get_header(); ?>
 
 </div>
 
-  <div class="background_plates">
-    <?php for ($i = 1; $i <= 20; $i++) { ?>
-        <div class="plate">
-              <div class="plate_content"></div>
-        </div>
-    <?php }  ?>
-  </div>
+
   <div id="particles-js"></div>
   <canvas class="particle_background"></canvas>
 	<canvas id="point_mesh"></canvas>
-  <div id="Orbit"><div class="overlay"></div></div>
+  <div id="Orbit">
+    <div class="overlay"></div>
+  </div>
   <?php
     $random_attachments = array_rand( $attachments, sizeof($attachments) );
     echo wp_get_attachment_image( $random_attachments[1]->ID, 'large', "", array( "class" => "background_image screen_fit" ) );

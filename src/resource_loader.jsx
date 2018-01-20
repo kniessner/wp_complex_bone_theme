@@ -35,12 +35,12 @@ window.onload = function() {
 */
 import Particles from 'particlesjs';
 window.onload = function() {
-  Particles.init({
-    selector: '.particle_background',
-    maxParticles: 50,
-    color: '#48F2E3',
-    connectParticles: true
-  });
+  // Particles.init({
+  //   selector: '.particle_background',
+  //   maxParticles: 50,
+  //   color: '#48F2E3',
+  //   connectParticles: true
+  // });
 };
 
 

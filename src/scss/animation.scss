@@ -33,7 +33,7 @@ $colors: $colour1, $colour2, $colour3, $colour4;
   position: absolute;
   margin: 50px 0;
   left: 0;
-  top:0 ;
+  top: 0;
   z-index: 2;
   float: left;
   background: rgba(150, 150, 50, 0.5);
@@ -44,7 +44,7 @@ $colors: $colour1, $colour2, $colour3, $colour4;
 .plate {
   float: left;
   width: 33.33%;
-  height: 400px;
+  height: 33.33%;
   margin: 0;
   animation: shift 15.6s ease-in-out infinite alternate;
   animation-delay: 0s;
@@ -53,15 +53,13 @@ $colors: $colour1, $colour2, $colour3, $colour4;
   padding: 1;
   border-radius: 0;
   mix-blend-mode: difference;
-  background: #313131;
-  background: linear-gradient(165deg, #e5e5e5, #3b4245, #404040, #bfbfbf);
- //background: rgba(200, 200, 200, 0.8);
+  background: #313131; //  background: linear-gradient(165deg, #e5e5e5, #3b4245, #404040, #bfbfbf);
+  //background: rgba(200, 200, 200, 0.8);
   .plate_content {
-    background: white;
     width: 100%;
     height: 100%;
     animation: shift 15.6s ease-in-out infinite alternate;
-  //  background: rgba(250, 250, 250, 0.8);
+    //  background: rgba(250, 250, 250, 0.8);
   }
 }
 @for $i from 17 through 1 {
@@ -78,7 +76,7 @@ $colors: $colour1, $colour2, $colour3, $colour4;
     transform: scale(0.95) rotateX(5deg) rotateY(5deg);
     //box-shadow: -10px 10px 30px -10px;
     opacity: 0.8;
-    padding:5;
+    padding: 5;
     border-radius: 0;
   }
 }

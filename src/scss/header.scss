@@ -1,12 +1,12 @@
 .l_square{
 	height: 200%;
-background: rgba(33, 37, 41, 0.6);
-position: absolute;
-top: 10px;
-width: 50%;
-transform: rotate(45deg);
-border: 10px solid #F8E900;
-z-index: 1000;
+	background: rgba(33, 37, 41, 0.6);
+	position: absolute;
+	top: 10px;
+	width: 50%;
+	transform: rotate(45deg);
+	border: 10px solid #F8E900;
+	z-index: 1000;
 
 }
 .inner_header {
@@ -15,7 +15,6 @@ z-index: 1000;
 	background: rgba(33, 37, 41, 0.6);
 	padding: 0px;
 	background: rgba(0, 0, 0, 0.7);
-
 	display: block;
 	width: 100%;
 	position: relative;
@@ -50,18 +49,11 @@ header {
 	.header_subline {
 
 	text-align: right;
-	/* width: 100%; */
-	/* bottom: 0; */
-	/* right: 0; */
 	letter-spacing: 0.8em;
 	color: snow;
 	z-index: 1;
-	/* margin-top: 10px; */
-	/* padding: 5px 40px; */
 	position: relative;
 	display: block;
-	/* float: right; */
-
 	}
 
 	.background {
