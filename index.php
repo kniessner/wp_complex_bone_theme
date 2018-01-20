@@ -101,6 +101,10 @@ get_header(); ?>
   <canvas class="particle_background"></canvas>
 	<canvas id="point_mesh"></canvas>
   <div id="Orbit"><div class="overlay"></div></div>
+  <?php
+    $random_attachments = array_rand( $attachments, sizeof($attachments) );
+    echo wp_get_attachment_image( $random_attachments[1]->ID, 'large', "", array( "class" => "background_image screen_fit" ) );
 
+   ?>
 <?php
 get_footer();
