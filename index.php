@@ -26,7 +26,7 @@ get_header(); ?>
     <?php } ?>
   </div>
 
-      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+      <div id="MainSlider" class="carousel slide" data-ride="carousel">
 
             <?php
                     $attachments = get_posts( array(
@@ -47,8 +47,6 @@ get_header(); ?>
                             $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
                             $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', false );
                             $largeimg = wp_get_attachment_link( $attachment->ID, 'large', false );
-                      //      echo $largeimg;
-
                             if ($y === 1) { ?>
                               <div class="carousel-item active">
                                   <?php
@@ -69,7 +67,6 @@ get_header(); ?>
             <div class="carousel-background" role="listbox">
               <?php
                       $y = 0;
-                      if ( $attachments ) {
                           foreach ( $attachments as $attachment ) {
                               $y++;
                               $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
@@ -79,15 +76,10 @@ get_header(); ?>
                                 <?php } else {  ?>
                                 <div class="carousel-item" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
                                 </div>
-                              <?php }
-
+                              <?php
+                               }
                           }
-                        ?>
-
-
-                      <?php
-                    }
-            ?>
+                          ?>
             </div>
 
 
@@ -105,7 +97,8 @@ get_header(); ?>
         </div>
         <?php
         }
-        	?></div>
+        	?>
+    </div>
     <main id="main" class="site-main">
     		<!--<div class="start_image" ><img class="screen_fit" src="<?php bloginfo('template_url');?>/src/img/logo_form.png" /> </div>-->
 
@@ -144,10 +137,10 @@ get_header(); ?>
   </div>
 
   <?php
-    if ( $attachments ) {
-      $random_attachments = array_rand( $attachments, sizeof($attachments) );
-      echo wp_get_attachment_image( $random_attachments[1]->ID, 'large', "", array( "class" => "background_image screen_fit" ) );
-    }
+    // if ( $attachments ) {
+    //   $random_attachments = array_rand( $attachments, sizeof($attachments) );
+    //   echo wp_get_attachment_image( $random_attachments[1]->ID, 'large', "", array( "class" => "background_image screen_fit" ) );
+    // }
    ?>
 
 <?php get_footer(); ?>
