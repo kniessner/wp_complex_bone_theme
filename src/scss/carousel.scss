@@ -1,3 +1,10 @@
+.carousel {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    float: left;
+}
+.carousel-background,
 .carousel-inner {
     position: relative;
     width: 100%;
@@ -6,12 +13,7 @@
 }
 
 .carousel-item {
-    position: relative;
-    align-items: center;
-  //  width: 100%;
-    transition: transform 0.6s ease;
-    backface-visibility: hidden;
-    perspective: 1000px;
+
     text-align: center;
     background: rgba(0, 0, 0, 0.7);
     padding: 40px;
@@ -20,11 +22,11 @@
     height: 100%;
     background-blend-mode: multiply;
     float: left;
+
    .img-fluid {
       max-width: 100%;
       width: auto;
       max-height: 100vh;
-      display:none
       //width: 100%;
   }
 }
