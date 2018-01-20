@@ -62394,7 +62394,7 @@ var app_loader = exports.app_loader = function app_loader(data) {
     _createClass(App, [{
       key: 'render',
       value: function render() {
-
+        console.log(data);
         var images = data.acf.featured_images;
         return _react2.default.createElement(
           'div',
