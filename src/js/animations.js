@@ -1,7 +1,7 @@
   $(window).scroll(function() {
           var scrollTop = $(window).scrollTop();
           var imgPos = scrollTop / 2.7 + 'px';
-          $('#MainSlider').find('img').css('transform', 'translateY(-' + imgPos + ')');
+      //    $('#MainSlider').find('img').css('transform', 'translateY(-' + imgPos + ')');
   });
 
 

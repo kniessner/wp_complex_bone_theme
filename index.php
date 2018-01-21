@@ -14,9 +14,9 @@
 
 get_header(); ?>
 
-<div id="content_wrap" class="">
+<div id="content_wrap" class="wow  slideInLeft">
 	<!-- particles.js container -->
-  <div class="content_header container">
+  <div class="content_header wow  slideInLeft container">
     <?php
     the_title( '<h4>', '</h4>' );
     if ( is_front_page() ) {
@@ -26,7 +26,7 @@ get_header(); ?>
     <?php } ?>
   </div>
 
-      <div id="MainSlider" class="carousel slide" data-ride="carousel">
+      <div id="MainSlider" class="carousel slide wow  slideInLeft" data-ride="carousel">
 
             <?php
                     $attachments = get_posts( array(
