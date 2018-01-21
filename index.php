@@ -65,7 +65,7 @@ get_header(); ?>
                  </section>
 
 
-<section id="MainSlider" class="carousel slide hidden" >
+<section id="MainSlider" class="carousel slide " >
 
           <div class="carousel-inner" role="listbox">
             <?php
