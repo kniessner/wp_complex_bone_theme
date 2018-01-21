@@ -19,15 +19,16 @@ wp.webStorage = wp.registerRoute( 'wp/v2', '/web_storage/(?P<id>[\\d]+)' );
 
 //wp.wmedia = wp.registerRoute( 'wp/v2', '/media/(?P<id>[\\d]+)' );
 
-wp.media().get(function( err, data ) {
-     if ( err ) {
-         console.log('api error',err);
-     }
-     console.log('media', data)
- });
+
 $(document).ready(function(){
 
-
+  wp.media().perPage( 60 ).page( 2 ).get(function( err, data ) {
+       if ( err ) {
+           console.log('api error',err);
+       }
+       console.log('media', data);
+          app_loader(data);
+   });
    var current_page =  $('#page_meta').data("id");
        if(current_page){
 
@@ -35,7 +36,7 @@ $(document).ready(function(){
                if ( err ) {
                    console.log('api error',err);
                }
-               app_loader(data);
+
            });
 
            wp.webStorage().get(function( err, data ) {
