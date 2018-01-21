@@ -60,8 +60,8 @@ $(window).on('scroll', function () {
 		var Z = 50;
 
 		selector.on("mousemove",function(e){
-			var XRel = e.pageX - this.offset().left;
-			var YRel = e.pageY - this.offset().top;
+			var XRel = e.pageX - $(this).offset().left;
+			var YRel = e.pageY - $(this).offset().top;
 			var width = selector.width();
 
 			YAngle = -(0.5 - (XRel / width)) * 4;

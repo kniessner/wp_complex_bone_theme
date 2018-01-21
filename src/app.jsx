@@ -8,7 +8,7 @@ export const app_loader = (data)=>{
 class App extends React.Component {
   render () {
    console.log(data);
-  	var images = data.acf.featured_images;
+  	var images = data;
     return (
 
     	<div id="react_port">

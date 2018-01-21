@@ -62312,8 +62312,14 @@ var wp = new WPAPI({
 
 wp.webStorage = wp.registerRoute('wp/v2', '/web_storage/(?P<id>[\\d]+)');
 
-wp.wmedia = wp.registerRoute('wp/v2', '/media/(?P<id>[\\d]+)');
+//wp.wmedia = wp.registerRoute( 'wp/v2', '/media/(?P<id>[\\d]+)' );
 
+wp.media().get(function (err, data) {
+    if (err) {
+        console.log('api error', err);
+    }
+    console.log('media', data);
+});
 $(document).ready(function () {
 
     var current_page = $('#page_meta').data("id");
@@ -62325,12 +62331,7 @@ $(document).ready(function () {
             }
             (0, _App.app_loader)(data);
         });
-        wp.wmedia().get(function (err, data) {
-            if (err) {
-                console.log('api error', err);
-            }
-            console.log('media', data);
-        });
+
         wp.webStorage().get(function (err, data) {
             if (err) {
                 console.log('api error', err);
@@ -62404,7 +62405,7 @@ var app_loader = exports.app_loader = function app_loader(data) {
       key: 'render',
       value: function render() {
         console.log(data);
-        var images = data.acf.featured_images;
+        var images = data;
         return _react2.default.createElement(
           'div',
           { id: 'react_port' },
@@ -114510,8 +114511,8 @@ $(window).on('scroll', function () {
 		var Z = 50;
 
 		selector.on("mousemove",function(e){
-			var XRel = e.pageX - this.offset().left;
-			var YRel = e.pageY - this.offset().top;
+			var XRel = e.pageX - $(this).offset().left;
+			var YRel = e.pageY - $(this).offset().top;
 			var width = selector.width();
 
 			YAngle = -(0.5 - (XRel / width)) * 4;
