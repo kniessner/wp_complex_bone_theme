@@ -1,10 +1,11 @@
 .carousel {
-  position: relative;
+  position: absolute;
   height: 90vh;
   width: 100%;
-  float: left;
-  padding: 20px;
+  margin-top: 100vh;
   overflow: hidden;
+  z-index: 40;
+  background: white;
 }
 .carousel-control{
   z-index: 100;
