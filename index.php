@@ -50,6 +50,21 @@ get_header(); ?>
               ));
 
                if ( $attachments ) { ?>
+
+                 <section id="photo_grid" class="background_plates">
+                     <?php $y = 0;
+                         foreach ( $attachments as $attachment ) {
+                             $y++; ?>
+
+                                 <div class="plate" data-target="#MainSlider" data-slide-to="<?php echo $y; ?>">
+                                   <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+
+                                   </div>
+                                 </div>
+                       <?php } ?>
+                 </section>
+
+
 <section id="MainSlider" class="carousel slide hidden" >
 
           <div class="carousel-inner" role="listbox">
@@ -110,18 +125,7 @@ get_header(); ?>
 
 
     </section>
-    <div class="background_plates">
-        <?php $y = 0;
-            foreach ( $attachments as $attachment ) {
-                $y++; ?>
 
-                    <div class="plate" data-target="#MainSlider" data-slide-to="<?php echo $y; ?>">
-                      <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
-
-                      </div>
-                    </div>
-          <?php } ?>
-    </div>
       <?php   }   ?>
         	<div class="container">
         			 <div class="" id="content_sneakpeak">
