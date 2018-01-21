@@ -43,15 +43,15 @@ get_header(); ?>
 
     <main id="main" class="site-main">
 
-<section id="MainSlider" class="carousel slide" >
+          <?php
+              $attachments = get_posts( array(
+                'post_type' => 'attachment',
+                'posts_per_page' => 30,
+              ));
 
-    <?php
-        $attachments = get_posts( array(
-          'post_type' => 'attachment',
-          'posts_per_page' => 30,
-        ));
+               if ( $attachments ) { ?>
+<section id="MainSlider" class="carousel slide hidden" >
 
-         if ( $attachments ) { ?>
           <div class="carousel-inner" role="listbox">
             <?php
             $y = 0;
@@ -105,23 +105,24 @@ get_header(); ?>
             </a>
         </div>
 
-<div class="background_plates">
-    <?php $y = 0;
-        foreach ( $attachments as $attachment ) {
-            $y++; ?>
-
-                <div class="plate" data-target="#MainSlider" data-slide-to="<?php echo $y; ?>">
-                  <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
-
-                  </div>
-                </div>
-      <?php } ?>
-</div>
 
 
-      <?php   }   ?>
+
+
     </section>
+    <div class="background_plates">
+        <?php $y = 0;
+            foreach ( $attachments as $attachment ) {
+                $y++; ?>
 
+                    <div class="plate" data-target="#MainSlider" data-slide-to="<?php echo $y; ?>">
+                      <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+
+                      </div>
+                    </div>
+          <?php } ?>
+    </div>
+      <?php   }   ?>
         	<div class="container">
         			 <div class="" id="content_sneakpeak">
         					<?php $query = array(
