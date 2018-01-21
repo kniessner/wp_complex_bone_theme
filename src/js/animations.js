@@ -23,7 +23,7 @@ $(document).ready(function($) {
   var parallaxQuantity = carouselInner.length;
 //    simpleParallax(2, $('.container'));
       simpleParallax(-2, slider);
-      simpleParallax(-2, $('header'));
+      simpleParallax(2.5, $('header'));
       simpleParallax(2, $('#logo'));
 
 
@@ -35,9 +35,12 @@ $(window).on('scroll', function () {
         var parallax_speed_x1 = scrolled / 2 + 'px';
         var parallax_speed_x2 = scrolled / 4 + 'px';
         var parallax_speed_x3 = scrolled / 6 + 'px';
+        console.log(scrolled / 10 ,  scrolled / 6 * 0.09);
         $('.content_header').css({
-          'transform': 'rotate(' + parallax_speed_x3 * 0.3 + 'deg, 0)'
+          'transform': 'rotate(' +     scrolled / 2  * 0.003 + 'deg)',
+          'width': 100 - (scrolled / 10 )+'%'
         });
+
         $('.plate').css({
           'transform': 'translate3d(0,' + parallax_speed_x3 * -0.3 + 'px, 0)'
         });
