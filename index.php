@@ -66,7 +66,9 @@ get_header(); ?>
 
 
 <section id="MainSlider" class="carousel slide " >
-
+        <div class="container">  <h2>
+            Favorites
+          </h2></div>
           <div class="carousel-inner" role="listbox">
             <?php
             $y = 0;
@@ -127,7 +129,7 @@ get_header(); ?>
     </section>
 
       <?php   }   ?>
-        	<div class="container">
+        	<div class="container ">
         			 <div class="" id="content_sneakpeak">
         					<?php $query = array(
         							'post_type' => array('projects','posts'),
