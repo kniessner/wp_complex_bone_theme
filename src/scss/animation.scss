@@ -52,7 +52,7 @@ $colors: $colour1, $colour2, $colour3, $colour4;
 .plate {
   float: left;
   width: 33.33%;
-  height: 33.33%;
+  height: 33.33vh;
   margin: 0;
   animation: shift 15.6s ease-in-out infinite alternate;
   animation-delay: 0s;
