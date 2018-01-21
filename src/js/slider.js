@@ -13,11 +13,8 @@ $(document).ready(function() {
 
 
     jQuery('#MainSlider').carousel({
-        interval: 2000,
-        ride: false
-
-
-      })
+        interval: 2000
+    });
     jQuery('#MainSlider').on('slide',function(e){
 
        var active = jQuery(e.target).find('.carousel-inner > .active');

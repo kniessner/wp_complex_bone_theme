@@ -23,8 +23,8 @@ $(document).ready(function($) {
   var parallaxQuantity = carouselInner.length;
 //    simpleParallax(2, $('.container'));
       simpleParallax(-2, slider);
-      simpleParallax(2.5, $('header'));
-      simpleParallax(2, $('#logo'));
+      simpleParallax(-2.5, $('header'));
+      simpleParallax(1.3, $('#logo'));
 
 
 $(window).on('scroll', function () {

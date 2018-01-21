@@ -14,7 +14,16 @@ $colors: $colour1, $colour2, $colour3, $colour4;
   z-index: 1;
   width: 100% !important;
 }
-
+.l_square{
+	height: 200%;
+	background: rgba(33, 37, 41, 0.6);
+	position: absolute;
+	bottom: 10px;
+	width: 50%;
+	transform: rotate(45deg);
+	border: 10px solid #F8E900;
+	z-index: 1000;
+}
 .particle_background {
   position: absolute;
   width: 100%;

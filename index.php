@@ -14,103 +14,113 @@
 
 get_header(); ?>
 
-<div id="content_wrap" class="slideInLeft">
+<div id="content_wrap">
 	<!-- particles.js container -->
-  <div class="content_header container">
+  <section class="content_header container">
     <?php
-    the_title( '<h4>', '</h4>' );
-    if ( is_front_page() ) {
-    ?>
-          <h2 style="padding-bottom: 10px;color: tomato;text-transform: uppercase;padding: 20px 0;"> A NEVER FINAL WEBSITE!</h2>
-          <h4  style="color: #fff;font-weight: 100;">following the prinziples of chaos -  the only habit is to steady move ahead  </b></h4>
-    <?php } ?>
-  </div>
+    //the_title( '<h4>', '</h4>' );
+      if ( is_front_page() ) {
 
-      <div id="MainSlider" class="carousel slide" data-ride="carousel">
+          if (have_posts()) : while (have_posts()) : the_post(); ?>
 
+          <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+          <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
+          <?php the_content(); ?>
+          </div>
+
+          <?php endwhile; ?>
+          <?php else : ?>
+
+          	<div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+          		<h1>Not Found</h1>
+          	</div>
+
+          <?php endif; ?>
+        <?php }
+       ?>
+    </section>
+
+
+    <main id="main" class="site-main">
+
+<section id="MainSlider" class="carousel slide" >
+
+    <?php
+        $attachments = get_posts( array(
+          'post_type' => 'attachment',
+          'posts_per_page' => 30,
+        ));
+
+         if ( $attachments ) { ?>
+          <div class="carousel-inner" role="listbox">
             <?php
-                    $attachments = get_posts( array(
-                        'post_type' => 'attachment',
-                        'posts_per_page' => 30,
-                       //  'post_parent' => $post->ID,
-                        //'exclude'     => get_post_thumbnail_id()
-                    ) );
-
-                    if ( $attachments ) {
-
-
-                      ?>
-                    <div class="carousel-inner" role="listbox">
-                      <?php
-                        $y = 0;
-                        foreach ( $attachments as $attachment ) {
-                            $y++;
-                            $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
-                            $thumbimg = wp_get_attachment_link( $attachment->ID, 'thumbnail-size', false );
-                            $largeimg = wp_get_attachment_link( $attachment->ID, 'large', false );
-                            if ($y === 1) { ?>
-                              <div class="carousel-item active">
-                                  <?php
-                                    echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
-                                  ?>
-                              </div>
-                              <?php } else {  ?>
-                              <div class="carousel-item" >
-                                <?php
-                                  echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
-                                ?>
-                              </div>
-                            <?php }
-
-                        }
-                      ?>
-                      </div>
-            <div class="carousel-background" role="listbox">
-              <?php
-                      $y = 0;
-                          foreach ( $attachments as $attachment ) {
-                              $y++;
-                              $class = "post-attachment mime-" . sanitize_title( $attachment->post_mime_type );
-                              if ($y === 1) { ?>
-                                <div class="bg-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
-                                </div>
-                                <?php } else {  ?>
-                                <div class="bg-item" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
-                                </div>
-                              <?php
-                               }
-                          }
-                          ?>
+            $y = 0;
+            foreach ( $attachments as $attachment ) {
+                   $y++;
+                   if ($y === 1) { ?>
+                     <div class="carousel-item active">
+                       <?php
+                       echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                       ?>
+                     </div>
+                   <?php } else {  ?>
+                     <div class="carousel-item" >
+                       <?php
+                       echo wp_get_attachment_image( $attachment->ID, 'large', "", array( "class" => "img-fluid screen_fit" ) );
+                       ?>
+                     </div>
+                   <?php }
+                }
+               ?>
             </div>
 
 
-        <div class="background_plates">
-                <?php
-                  $y = 0;
-                    foreach ( $attachments as $attachment ) {
-                        $y++;
-                          ?>
-                          <div class="plate" data-target="#MainSlider" data-slide-to="<?php echo $y; ?>">
-                                <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);"></div>
-                          </div>
-                          <?php
-                    }
-                ?>
+            <div class="carousel-background">
+              <?php
+              $y = 0;
+              foreach ( $attachments as $attachment ) {
+                $y++;
+                if ($y === 1) { ?>
+                  <div class="bg-item active"  style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+                  </div>
+                <?php } else {  ?>
+                  <div class="bg-item" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+                  </div>
+                  <?php
+                }
+              }
+              ?>
+            </div>
+
+
+
+        <div class="carousel_controller">
+            <a class="carousel-control carousel-control-prev" href="#MainSlider" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control carousel-control-next" href="#MainSlider" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
         </div>
-        <a class="carousel-control-prev" href="#MainSlider" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#MainSlider" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-        <?php
-        }
-        	?>
-    </div>
-    <main id="main" class="site-main">
-    		<!--<div class="start_image" ><img class="screen_fit" src="<?php bloginfo('template_url');?>/src/img/logo_form.png" /> </div>-->
+
+<div class="background_plates">
+    <?php $y = 0;
+        foreach ( $attachments as $attachment ) {
+            $y++; ?>
+
+                <div class="plate" data-target="#MainSlider" data-slide-to="<?php echo $y; ?>">
+                  <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+
+                  </div>
+                </div>
+      <?php } ?>
+</div>
+
+
+      <?php   }   ?>
+    </section>
 
         	<div class="container">
         			 <div class="" id="content_sneakpeak">
@@ -134,7 +144,7 @@ get_header(); ?>
         				</div>
         	   </div>
 
-    </main><!-- #main -->
+    </main>
   <div id="app"></div>
 
 </div>
