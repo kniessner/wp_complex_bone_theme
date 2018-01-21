@@ -12,17 +12,19 @@ $(document).ready(function() {
   });
 
 
-  jQuery('#MainSlider').carousel({
-      interval: 2000
+    jQuery('#MainSlider').carousel({
+        interval: 2000,
+        ride: false
 
-    })
+
+      })
     jQuery('#MainSlider').on('slide',function(e){
 
-      var active = jQuery(e.target).find('.carousel-inner > .active');
- var from = active.index();
- var next = jQuery(e.relatedTarget);
- var to = next.index();
- console.log('w',next);
+       var active = jQuery(e.target).find('.carousel-inner > .active');
+       var from = active.index();
+       var next = jQuery(e.relatedTarget);
+       var to = next.index();
+       console.log('w',next);
 
      });
 });

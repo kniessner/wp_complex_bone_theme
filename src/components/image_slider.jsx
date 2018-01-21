@@ -141,8 +141,8 @@ class Image_Slider extends React.Component {
 		          <button className='button' onClick={this.previous}>Previous</button>
 		          <button className='button' onClick={this.next}>Next</button>
 		          <button className='button' onClick={this.slide_to}>Next</button>
-
 		        </div>
+
 	  		</div>
 	  	);
 

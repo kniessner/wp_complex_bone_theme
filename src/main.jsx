@@ -30,7 +30,7 @@ $(document).ready(function(){
                   console.log('api error',err);
               }
               console.log('media', data);
-                 app_loader(data);
+              app_loader(data);
           });
           // wp.pages().get(function( err, data ) {
           //      if ( err ) {
