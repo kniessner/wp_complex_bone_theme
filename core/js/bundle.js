@@ -62312,15 +62312,24 @@ var wp = new WPAPI({
 
 wp.webStorage = wp.registerRoute('wp/v2', '/web_storage/(?P<id>[\\d]+)');
 
+wp.wmedia = wp.registerRoute('wp/v2', '/media/(?P<id>[\\d]+)');
+
 $(document).ready(function () {
 
     var current_page = $('#page_meta').data("id");
     if (current_page) {
+
         wp.pages().get(function (err, data) {
             if (err) {
                 console.log('api error', err);
             }
             (0, _App.app_loader)(data);
+        });
+        wp.wmedia().get(function (err, data) {
+            if (err) {
+                console.log('api error', err);
+            }
+            console.log('media', data);
         });
         wp.webStorage().get(function (err, data) {
             if (err) {
@@ -114478,7 +114487,7 @@ $(window).on('scroll', function () {
         var parallax_speed_x3 = scrolled / 6 + 'px';
         console.log(scrolled / 10 ,  scrolled / 6 * 0.09);
         $('.content_header').css({
-          'transform': 'rotate(' +     scrolled / 2  * 0.003 + 'deg)',
+          'transform': 'rotate(' +     scrolled / 2  * 0.003 + 'deg) translateY(' +  parallax_speed_x3 * -0.3 + ')',
           'width': 100 - (scrolled / 10 )+'%',
 
         });
