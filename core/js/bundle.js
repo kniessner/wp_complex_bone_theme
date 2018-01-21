@@ -62405,7 +62405,7 @@ var app_loader = exports.app_loader = function app_loader(data) {
     _createClass(App, [{
       key: 'render',
       value: function render() {
-        console.log(data);
+        console.log('images', data);
         var images = data;
         return _react2.default.createElement(
           'div',
@@ -91289,8 +91289,8 @@ var Image_Slider = function (_React$Component) {
 				console.log(image);
 				return _react2.default.createElement(
 					'div',
-					{ style: { width: image.sizes.large_width + "px" }, key: image.id },
-					_react2.default.createElement('img', { src: image.sizes.large, id: image.id }),
+					{ style: { width: image.media_details.sizes.large_width + "px" }, key: image.id },
+					_react2.default.createElement('img', { src: image.media_details.sizes.large, id: image.id }),
 					_react2.default.createElement(
 						'div',
 						{ className: 'caption' },
@@ -91303,8 +91303,8 @@ var Image_Slider = function (_React$Component) {
 				console.log(image);
 				return _react2.default.createElement(
 					'div',
-					{ className: 'thumbnail', style: { width: image.sizes.thumbnail_width + "px" }, key: image.id },
-					_react2.default.createElement('img', { src: image.sizes.thumbnail, id: image.id }),
+					{ className: 'thumbnail', style: { width: image.media_details.sizes.thumbnail_width + "px" }, key: image.id },
+					_react2.default.createElement('img', { src: image.media_details.sizes.thumbnail, id: image.id }),
 					_react2.default.createElement(
 						'div',
 						{ className: 'caption' },
@@ -93029,10 +93029,6 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 __webpack_require__(35);
 
-var _scrollify = __webpack_require__(256);
-
-var _scrollify2 = _interopRequireDefault(_scrollify);
-
 var _jotted = __webpack_require__(257);
 
 var _jotted2 = _interopRequireDefault(_jotted);
@@ -93075,11 +93071,14 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-window.onload = function () {
-  _jquery2.default.scrollify({
-    section: ".carousel-item"
-  });
-};
+// import scrollify from 'scrollify';
+// window.onload = function() {
+//       $.scrollify({
+//         section : ".carousel-item",
+//       });
+// };
+
+
 //require('font-awesome');
 
 /*
@@ -99576,101 +99575,7 @@ Popper.Defaults = Defaults;
 /* WEBPACK VAR INJECTION */}.call(__webpack_exports__, __webpack_require__(10)))
 
 /***/ }),
-/* 256 */
-/***/ (function(module, exports, __webpack_require__) {
-
-/* WEBPACK VAR INJECTION */(function(jQuery) {(function ($, window, document, undefined) {
-  'use strict';
-
-  $.fn.extend({
-    scrollify: function (settings) {
-
-      return this.each(function () {
-        var $table = $(this);
-        
-        var savedSettings = $table.data('scrollify');
-        
-        settings = settings || savedSettings;
-        
-        $table.data('scrollify', settings);
-        
-        reflow($table);
-        
-        //if we have saved settings that means we already
-        //registerd the resize handler which we don't 
-        //need to do again.
-        if (savedSettings) {
-          return;
-        }
-        
-        $(window).resize(function () { 
-          reflow.bind(null, $table)
-        });
-      });
-    }
-  });
-
-  function reflow ($table) {
-    var settings = $table.data('scrollify');
-    
-    //reset table to normal display
-    $table.find('thead').css({ display : 'table-header-group' });
-    $table.find('tbody').css({ display : 'table-row-group' });
-    $table.find('tfoot').css({ display : 'table-footer-group' });
-    
-    //clear manually set widths
-    var $headCells = $table.find('thead tr:first').children().width('');
-    var $bodyCells = $table.find('tbody tr:first').children().width('');
-    var $footCells = $table.find('tfoot tr:first').children().width('');
-    
-    var bodyColWidth = [];
-    var headColWidth = [];
-    var footColWidth = [];
-    
-    //get column widths as they flow naturally
-    $bodyCells.each(function() {
-      bodyColWidth.push($(this).width());
-    });
-    
-    $headCells.each(function() {
-      headColWidth.push($(this).width());
-    });
-    
-    $footCells.each(function() {
-      footColWidth.push($(this).width());
-    });
-    
-    //set columns widths manually
-    $bodyCells.each(function (i) {
-      $(this).width(bodyColWidth[i]);
-    });
-    
-    $headCells.each(function (i) {
-      $(this).width(headColWidth[i]);
-    });
-    
-    $footCells.each(function (i) {
-      $(this).width(footColWidth[i]);
-    });
-    
-    //enable scrolling
-    $table.find('thead, tbody, tfoot').css({ display : 'block' })
-    
-    var maxHeight = (typeof settings.maxHeight === 'function')
-      ? settings.maxHeight($table)
-      : settings.maxHeight
-      ;
-    
-    $table.find('tbody').css({
-      maxHeight : maxHeight
-      , overflow : 'auto'
-    });
-  }
-})(jQuery, window, document);
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
-
-/***/ }),
+/* 256 */,
 /* 257 */
 /***/ (function(module, exports, __webpack_require__) {
 

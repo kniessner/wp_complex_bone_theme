@@ -17,12 +17,13 @@ import $ from 'jquery';
 
 import 'masonry-layout'
 
-import scrollify from 'scrollify';
-window.onload = function() {
-      $.scrollify({
-        section : ".carousel-item",
-      });
-};
+// import scrollify from 'scrollify';
+// window.onload = function() {
+//       $.scrollify({
+//         section : ".carousel-item",
+//       });
+// };
+
 
 import Jotted from 'jotted';
 import 'jotted/jotted.css';

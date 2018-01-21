@@ -7,7 +7,7 @@ export const app_loader = (data)=>{
 
 class App extends React.Component {
   render () {
-   console.log(data);
+   console.log('images',data);
   	var images = data;
     return (
 
