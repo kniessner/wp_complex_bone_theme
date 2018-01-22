@@ -16,7 +16,7 @@ get_header(); ?>
 
 <div id="content_wrap">
 	<!-- particles.js container -->
-  <section class="content_header container">
+
     <?php
     //the_title( '<h4>', '</h4>' );
       if ( is_front_page() ) {
@@ -25,7 +25,7 @@ get_header(); ?>
 
           <div <?php post_class(); ?> id="post-<?php the_ID(); ?>">
           <h1><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-          <?php the_content(); ?>
+          <section class="content_header container">  <?php the_content(); ?></section>
           </div>
 
           <?php endwhile; ?>
@@ -38,7 +38,7 @@ get_header(); ?>
           <?php endif; ?>
         <?php }
        ?>
-    </section>
+
 
 
     <main id="main" class="site-main">
