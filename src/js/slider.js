@@ -13,7 +13,7 @@ $(document).ready(function() {
 
 
     jQuery('#MainSlider').carousel({
-        interval: 2000
+        interval: 20000
     });
     jQuery('#MainSlider').on('slide',function(e){
 
