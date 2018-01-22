@@ -36,9 +36,11 @@ $(window).on('scroll', function () {
         var parallax_speed_x2 = scrolled / 4 + 'px';
         var parallax_speed_x3 = scrolled / 6 + 'px';
         console.log(scrolled / 10 ,  scrolled / 6 * 0.09);
+
+
         $('.content_header').css({
-          'transform': 'rotate(' +     scrolled / 2  * 0.003 + 'deg) translateY(' +  parallax_speed_x3 * -0.3 + ')',
-          'width': 100 - (scrolled / 10 )+'%',
+          'transform': 'rotate(' +     scrolled / 2  * 0.003 + 'deg) translateY(' +  scrolled * -0.3 + ')',
+          'width': 100 - (scrolled / 10 )+'%'
 
         });
 
