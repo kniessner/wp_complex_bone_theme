@@ -104974,8 +104974,8 @@ $(window).on('scroll', function () {
 
 
         $('.content_header').css({
-          'transform': 'rotate(' +     scrolled / 2  * 0.003 + 'deg) translateY(' +  scrolled * -0.3 + ')',
-          'width': 100 - (scrolled / 10 )+'%'
+          'transform': 'rotate(' +     scrolled / 2  * 0.003 + 'deg) translateY(' +  scrolled * -0.3 + ')'
+        //  'width': 100 - (scrolled / 10 )+'%'
 
         });
 
