@@ -16,13 +16,13 @@ $colors: $colour1, $colour2, $colour3, $colour4;
 }
 .l_square{
 	height: 200%;
-	background: rgba(33, 37, 41, 0.6);
 	position: absolute;
 	bottom: 10px;
 	width: 50%;
 	transform: rotate(45deg);
 	border: 10px solid #F8E900;
 	z-index: 1000;
+  mix-blend-mode: color-burn;
 }
 .particle_background {
   position: absolute;

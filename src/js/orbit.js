@@ -5,15 +5,17 @@
 import * as THREE from 'three';
 var OrbitControls = require('three-orbit-controls')(THREE);
 
-jQuery(document).ready(function($) {
-  var header = document.getElementById('Orbit_Header');
+jQuery(document).ready(function ($) {
+  var header = document.getElementById("header_panel");
   var container = document.getElementById('Orbit');
   if (container) {
     var scene = new THREE.Scene();
     var height = window.innerHeight;
     var width = window.innerWidth;
     var camera = new THREE.PerspectiveCamera(60, width / height, 1, 1500);
-    var renderer = new THREE.WebGLRenderer({alpha: true});
+    var renderer = new THREE.WebGLRenderer({
+      alpha: true
+    });
 
     var mouseX = 0;
     var mouseY = 0;
@@ -23,8 +25,8 @@ jQuery(document).ready(function($) {
 
     renderer.setSize(window.innerWidth - 15, (window.innerHeight));
     container.appendChild(renderer.domElement);
-    //header.appendChild(renderer.domElement);
-    camera.position.z = 100;
+    //  header.appendChild(renderer.domElement);
+    camera.position.z = 400;
     camera.position.x = -0;
 
     /*=================================================
@@ -32,14 +34,22 @@ jQuery(document).ready(function($) {
 		=================================================*/
 
     var geometry = new THREE.TorusGeometry(102, 100, 10, 50);
-    var material = new THREE.MeshLambertMaterial({color: "rgba(250, 250, 250,1)", morphTargets: true});
+    var material = new THREE.MeshLambertMaterial({
+      color: "rgba(250, 250, 250,1)",
+      morphTargets: true
+    });
     var RingCore = new THREE.Mesh(geometry, material);
     //scene.add( RingCore )
 
     var geometry = new THREE.TorusGeometry(202, 200, 10, 100);
-    var material = new THREE.MeshLambertMaterial({color: "rgba(94, 236, 255,0.4)", morphTargets: true, wireframe: true, combine: THREE.MultiplyBlending});
+    var material = new THREE.MeshLambertMaterial({
+      color: "rgba(94, 236, 255,0.4)",
+      morphTargets: true,
+      wireframe: true,
+      combine: THREE.MultiplyBlending
+    });
     var RingWire = new THREE.Mesh(geometry, material);
-    //scene.add( RingWire );
+  //  scene.add(RingWire);
 
     RingCore.position.z = 150;
     RingWire.position.z = 150;
@@ -49,13 +59,13 @@ jQuery(document).ready(function($) {
     RingWire.position.x = -150;
 
     // First let's define a Sea object :
-    var Sea = function() {
+    var Sea = function () {
 
       //var geom = new THREE.SphereGeometry( 150, 7, 7 );
       var geom = new THREE.DodecahedronGeometry(150);
       var geometry = new THREE.DodecahedronGeometry(652); // radius - segments -rings
 
-      //geom.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI/2));
+      geom.applyMatrix(new THREE.Matrix4().makeRotationX(-Math.PI / 2));
 
       // important: by merging vertices we ensure the continuity of the waves
       geom.mergeVertices();
@@ -72,7 +82,9 @@ jQuery(document).ready(function($) {
         var p = geometry.vertices[i];
         // store some data associated to it
         this.waves.push({
-          y: v.y, x: v.x, z: v.z,
+          y: v.y,
+          x: v.x,
+          z: v.z,
           // a random angle
           ang: Math.random() * Math.PI * 2,
           // a random distance
@@ -82,46 +94,57 @@ jQuery(document).ready(function($) {
         });
       };
 
-      var mat = new THREE.MeshPhongMaterial({color: ' RGBA(84, 84, 84, 1.00)', transparent: true, shading: THREE.FlatShading});
-      var material = new THREE.MeshLambertMaterial({color: 0xFDFDFDF, morphTargets: true, wireframe: true, combine: THREE.FlatShading});
+      var mat = new THREE.MeshPhongMaterial({
+        color: ' RGBA(84, 84, 84, 1.00)',
+        transparent: true,
+        shading: THREE.FlatShading
+      });
+      var material = new THREE.MeshLambertMaterial({
+        color: 0xFDFDFDF,
+        morphTargets: true,
+        wireframe: true,
+        combine: THREE.FlatShading
+      });
 
-//  this.mesh = new THREE.Mesh(geom, mat);
-var geometry1 = new THREE.TorusGeometry(302, 100, 50, 50);
+      this.mesh = new THREE.Mesh(geom, mat);
+      var geometry1 = new THREE.TorusGeometry(302, 100, 50, 50);
 
-      this.mesh =  new THREE.Mesh(geometry1, material);
-        this.mesh.receiveShadow = true;
-      this.wire = new THREE.Mesh(geometry, material);
+    //  this.mesh = new THREE.Mesh(geometry1, material);
+      this.mesh.receiveShadow = true;
+      this.wire = new THREE.Mesh(geometry1, material);
       this.wire.receiveShadow = true;
 
     }
 
-    Sea.prototype.moveWaves = function() {
+    Sea.prototype.moveWaves = function () {
       var verts = this.wire.geometry.vertices;
       var l = verts.length;
 
       for (var i = 0; i < l; i++) {
         var v = verts[i];
-
-        var vprops = this.waves[i];
-
-      v.x = vprops.x + Math.cos(vprops.ang) * vprops.amp;
-     v.y = vprops.y + Math.sin(vprops.ang) * vprops.amp;
-
-      vprops.ang += vprops.speed;
+        var vprops;
+          vprops = this.waves[i];
+         if (vprops)
+         {
+           v.x = vprops.x + Math.cos(vprops.ang) * vprops.amp;
+           v.y = vprops.y + Math.sin(vprops.ang) * vprops.amp;
+           vprops.ang += vprops.speed;
+        }
 
       }
       this.wire.geometry.verticesNeedUpdate = true;
-      //this.mesh.geometry.verticesNeedUpdate = true;
+      this.mesh.geometry.verticesNeedUpdate = true;
       bubbule.wire.rotation.y -= .00002;
       bubbule.mesh.rotation.y -= .00002;
     }
     var bubbule;
+
     function createBubbule() {
       bubbule = new Sea();
 
       // add the mesh of the sea to the scene
       scene.add(bubbule.wire);
-  // scene.add(bubbule.mesh);
+      scene.add(bubbule.mesh);
     }
     createBubbule();
 
@@ -138,8 +161,8 @@ var geometry1 = new THREE.TorusGeometry(302, 100, 50, 50);
     light.position.set(-200, -200, -200);
     scene.add(light);
 
-    //light = new THREE.AmbientLight( 0x222222 );
-    //scene.add( light );
+    light = new THREE.AmbientLight(0x222222);
+    scene.add(light);
 
     var hemisphereLight = new THREE.HemisphereLight('RGBA(56, 238, 229, 1.00)', 0x000000, .9);
     scene.add(hemisphereLight);
@@ -149,56 +172,52 @@ var geometry1 = new THREE.TorusGeometry(302, 100, 50, 50);
 	=================================================*/
 
     var geometry = new THREE.SphereGeometry(652, 15, 15); // radius - segments -rings
-    var material = new THREE.MeshLambertMaterial({color: 0xFDFDFDF, morphTargets: true, wireframe: true, combine: THREE.MultiplyBlending});
+    var material = new THREE.MeshLambertMaterial({
+      color: 0xFDFDFDF,
+      morphTargets: true,
+      wireframe: true,
+      combine: THREE.MultiplyBlending
+    });
 
     var geometryCore = new THREE.SphereGeometry(115, 15, 15); // radius - segments -rings
-    var materialCore = new THREE.MeshPhongMaterial({color: 0xFDFDFDF, shading: THREE.FlatShading, morphTargets: true, wireframe: false, combine: THREE.MultiplyBlending});
+    var materialCore = new THREE.MeshPhongMaterial({
+      color: 0xFDFDFDF,
+      shading: THREE.FlatShading,
+      morphTargets: true,
+      wireframe: false,
+      combine: THREE.MultiplyBlending
+    });
 
     var balls = [];
     var ballscore = [];
-    /*for ( var i = 0; i <  1; i ++ ) {
+    for (var i = 0; i < 1; i++) {
+      var ball = new THREE.Mesh(geometry, material);
+      var ballcore = new THREE.Mesh(geometryCore, materialCore);
+      ballcore.receiveShadow = true;
+      var pos_x = (Math.random() - 0.5) * 1200;
+      var pos_z = (Math.random() - 0.5) * 1200;
+      var pos_y = (Math.random() - 0.5) * 1200;
+      //ball.position.x = pos_x;
+      //ball.position.y = pos_y;
+      //ball.position.z = pos_z;
 
+      ballcore.position.x = pos_x;
+      ballcore.position.y = pos_y;
+      ballcore.position.z = pos_z;
 
-
-
-							var ball = new THREE.Mesh( geometry, material );
-							var ballcore = new THREE.Mesh( geometryCore, materialCore );
-							ballcore.receiveShadow = true;
-							var pos_x =  ( Math.random() - 0.5 ) * 1200;
-							var pos_z =  ( Math.random() - 0.5 ) * 1200;
-							var pos_y =  ( Math.random() - 0.5 ) * 1200;
-
-							//ball.position.x = pos_x;
-							//ball.position.y = pos_y;
-							//ball.position.z = pos_z;
-
-							ballcore.position.x = pos_x;
-							ballcore.position.y = pos_y;
-							ballcore.position.z = pos_z;
-
-							ball.updateMatrix();
-							ball.matrixAutoUpdate = true;
-							//scene.add( ballcore );
-							scene.add( ball );
-							balls.push(ball);
-							//ballscore.push(ballcore);
-
-							//ballscore.updateMatrix();
-							//totalGeom.merge( ballscore.geometry, ballscore.matrix );
-
-
-							//balls.updateMatrix();
-							//totalGeom.merge( balls.geometry, balls.matrix );
-				}
-		    	*/
+      ball.updateMatrix();
+      ball.matrixAutoUpdate = true;
+     // scene.add(ballcore);
+      //scene.add(ball);
+      balls.push(ball);
+      ballscore.push(ballcore);
+      //ballscore.updateMatrix();
+     // totalGeom.merge(ballscore.geometry, ballscore.matrix);
+     // balls.updateMatrix();
+     // totalGeom.merge(balls.geometry, balls.matrix);
+    }
 
     // List of all the materials used in the meshes you want to combine
-
-    //console.log(balls.childen.length);
-
-    //this.light = new THREE.PointLight();
-    //this.light.position.set(0, 0,0);
-    //this.scene.add(this.light);
 
     /*=================================================
 			RENDER
@@ -224,9 +243,9 @@ var geometry1 = new THREE.TorusGeometry(302, 100, 50, 50);
     }
 
     var t = 20;
-    var render = function() {
+    var render = function () {
       //console.log(balls.children);
-      //balls.children = [];
+      balls.children = [];
       //RingCore.rotation.x += 0.0006;
       //RingCore.rotation.y += 0.0003;
       //RingCore.rotation.z += 0.0006;
@@ -237,8 +256,8 @@ var geometry1 = new THREE.TorusGeometry(302, 100, 50, 50);
       camera.position.x += (mouseX - camera.position.x) * 0.0000005;
       camera.position.y += (-mouseY - camera.position.y) * 0.00005;
 
-    //  camera.position.y += 0.0001;
-    //  camera.position.x += 0.0002;
+      //  camera.position.y += 0.0001;
+      //  camera.position.x += 0.0002;
       var rand_speed_y = Math.floor(Math.random() * 0.000019) + 0.0001;
       var rand_speed_x = Math.floor(Math.random() * 0.000649) + 0.0001;
       var rand_speed_z = Math.floor(Math.random() * 0.000119) + 0.0001;
@@ -254,43 +273,39 @@ var geometry1 = new THREE.TorusGeometry(302, 100, 50, 50);
       bubbule.wire.position.y -= (rand_speed_y * 2);
       bubbule.wire.position.x += (rand_speed_x * 2);
       bubbule.wire.position.z -= (rand_speed_z * 2);
-      //balls[3].position.x = Math.cos(5*t) * 150;
-      //balls[3].position.y = Math.cos(5*t) * 150;
-      //balls[3].position.z = Math.sin(5*t) * 150;
 
-      /*
-		        for ( var i = 0; i < balls.length; i ++ ) {
-			  		   var rand_speed_y = Math.floor(Math.random() * 0.019) + 0.0001  ;
-			  		   var rand_speed_x = Math.floor(Math.random() * 0.0149) + 0.001  ;
-			  		   var rand_speed_z = Math.floor(Math.random() * 0.0119) + 0.0001  ;
-			  		   	//balls[i].position.y += rand_speed_y;
-			  		   	balls[i].rotation.y += rand_speed_y;
-				 		balls[i].rotation.x -= rand_speed_x;
-				 		balls[i].rotation.z += rand_speed_z;
+      for (var i = 0; i < balls.length; i++) {
+        var rand_speed_y = Math.floor(Math.random() * 0.019) + 0.0001;
+        var rand_speed_x = Math.floor(Math.random() * 0.0149) + 0.001;
+        var rand_speed_z = Math.floor(Math.random() * 0.0119) + 0.0001;
+        //balls[i].position.y += rand_speed_y;
+        balls[i].rotation.y += rand_speed_y;
+        balls[i].rotation.x -= rand_speed_x;
+        balls[i].rotation.z += rand_speed_z;
 
-				 		balls[i].position.y += (rand_speed_y * 2);
-				 		balls[i].position.x -= (rand_speed_x * 2);
-				 		balls[i].position.z += (rand_speed_z * 2);
+        balls[i].position.y += (rand_speed_y * 2);
+        balls[i].position.x -= (rand_speed_x * 2);
+        balls[i].position.z += (rand_speed_z * 2);
 
-				 		//ballscore[i].position.y += (rand_speed_y * 2);
-				 		//ballscore[i].position.x -= (rand_speed_x * 2);
-				 		//ballscore[i].position.z += (rand_speed_z * 2);
+        //ballscore[i].position.y += (rand_speed_y * 2);
+        //ballscore[i].position.x -= (rand_speed_x * 2);
+        //ballscore[i].position.z += (rand_speed_z * 2);
 
 
-				}
+      }
 
 
-		        for ( var i = 0; i < ballscore.length; i ++ ) {
-			  		   var rand_speed_y = Math.floor(Math.random() * 0.019) + 0.0001  ;
-			  		   var rand_speed_x = Math.floor(Math.random() * 0.0149) + 0.001  ;
-			  		   var rand_speed_z = Math.floor(Math.random() * 0.0119) + 0.0001  ;
-			  		   	//balls[i].position.y += rand_speed_y;
-			  		   	ballscore[i].rotation.y += rand_speed_y;
-				 		ballscore[i].rotation.x -= rand_speed_x;
-				 		ballscore[i].rotation.z += rand_speed_z;
+      for (var i = 0; i < ballscore.length; i++) {
+        var rand_speed_y = Math.floor(Math.random() * 0.019) + 0.0001;
+        var rand_speed_x = Math.floor(Math.random() * 0.0149) + 0.001;
+        var rand_speed_z = Math.floor(Math.random() * 0.0119) + 0.0001;
+        //balls[i].position.y += rand_speed_y;
+        ballscore[i].rotation.y += rand_speed_y;
+        ballscore[i].rotation.x -= rand_speed_x;
+        ballscore[i].rotation.z += rand_speed_z;
 
 
-				}*/
+      }
       bubbule.moveWaves();
       camera.lookAt(scene.position);
       requestAnimationFrame(render);

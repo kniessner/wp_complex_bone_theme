@@ -1,44 +1,104 @@
 header {
 	z-index: 15;
 	display: block;
-	position: relative;
+	position: fixed;
 	margin: 0 auto;
-	height: 200px;
-	width: 100%;
-	//padding:  20px;
+	height: 100vh;
+	width: 100%; //padding:  20px;
 	//padding: 10px;
-  //border: 20px solid rgba(33, 37, 41, 0.6);
+	//border: 20px solid rgba(33, 37, 41, 0.6);
 	//background: rgba(250,250,250,0.4);
-	background: rgba(33, 37, 41, 0.6);
+	//background: rgba(33, 37, 41, 0.6);
 	overflow: hidden;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
 	.inner_header {
 		height: 100%;
-	  width: 100%;
+		width: 100%;
 		padding: 0px;
 		display: block;
 		position: relative;
+		.inner_side_header{
+			background: rgba(248, 233, 0, 0.6);
+			margin: 0 20px;
+			width: 40%;
+			height: 63vh;
+			border: none;
+			//top: 400px;
+			transform: rotate(0deg);
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			z-index: 1000;
+			//margin-bottom: -400px;
+		}
 	}
-
-
-	.header_subline {
-			text-align: right;
+	#logoTitle {
+	width: 100%;
+	height: calc(37vh - 40px);
+	background: rgba(0, 0, 0, 0.3);
+	bottom: calc(100% + 20px);
+	position: absolute;
+		.header_subline {
 			letter-spacing: 0.8em;
 			color: snow;
 			z-index: 1;
 			position: relative;
 			display: block;
+			z-index: 100;
+			text-align: right;
+			margin-bottom: 10px;
+			bottom: 10px;
+			padding-top: 50px;
+			position: absolute;
+			left: 40px;
+		}
+		.logo_wrap {
+			z-index: 100;
+			margin-bottom: 10px;
+			bottom: 40px;
+			padding: 0 200px 50px;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			#logo {
+				width: 100%;
+				height: auto;
+				.st0 {
+					fill: rgba(255, 255, 255, 0.8);
+				}
+				.circle {
+					filter: grayscale(1) drop-shadow(16px 30px 10px rgba(0, 0, 0, 0.9));
+					stroke: RGBA(9, 48, 78, 0.4);
+					stroke-width: 60px;
+					fill: none;
+					-webkit-transition: all 3500ms;
+					-moz-transition: all 3500ms;
+					-ms-transition: all 3500ms;
+					-o-transition: all 3500ms;
+					transition: all 3500ms;
+				}
+				&:hover {
+					-webkit-transition: all 500ms;
+					-moz-transition: all 500ms;
+					-ms-transition: all 500ms;
+					-o-transition: all 500ms;
+					transition: all 500ms;
+					.circle {
+						filter: grayscale(1) drop-shadow(16px 30px 10px rgba(0, 0, 0, 0.9));
+						stroke: RGBA(84, 84, 84, 0.5);
+						stroke-width: 20px;
+						fill: none;
+						-webkit-transition: all 3500ms;
+						-moz-transition: all 3500ms;
+						-ms-transition: all 3500ms;
+						-o-transition: all 3500ms;
+						transition: all 3500ms;
+					}
+				}
+			}
+		}
 	}
-
-	.background {
-		background: RGBA(250, 250, 250, 0.8);
-		top: 0;
-		width: 100%;
-		height: 100%;
-		left: 0;
-	}
-
+	
 	#Orbit_Header {
 		position: fixed;
 		top: 0;
@@ -48,60 +108,9 @@ header {
 		background: rgba(20, 20, 20, 0.5);
 		display: none;
 	}
-
- .logo_wrap {
-		z-index: 100;
-		text-align: right;
-		margin-bottom: 10px;
-		margin-top: 10px;
-		padding-top: 20px;
-	}
-	#logo {
-		width: auto;
-		height: 110px;
-		margin: 0px 20px;
-
-		.st0 {
-			fill: rgba(250,250,250,0.8);
-		}
-
-		.circle {
-			filter: grayscale(1) drop-shadow(16px 30px 10px rgba(0, 0, 0, 0.9));
-			stroke: RGBA(9, 48, 78, 0.4);
-			stroke-width: 60px;
-			fill: none;
-			-webkit-transition: all 3500ms;
-			-moz-transition: all 3500ms;
-			-ms-transition: all 3500ms;
-			-o-transition: all 3500ms;
-			transition: all 3500ms;
-		}
-
-		&:hover {
-			-webkit-transition: all 500ms;
-			-moz-transition: all 500ms;
-			-ms-transition: all 500ms;
-			-o-transition: all 500ms;
-			transition: all 500ms;
-
-			.circle {
-				filter: grayscale(1) drop-shadow(16px 30px 10px rgba(0,0,0,0.9));
-				stroke: RGBA(84, 84, 84, 0.5);
-				stroke-width: 20px;
-				fill: none;
-				-webkit-transition: all 3500ms;
-				-moz-transition: all 3500ms;
-				-ms-transition: all 3500ms;
-				-o-transition: all 3500ms;
-				transition: all 3500ms;
-			}
-		}
-	}
-
 	h1 {
 		mix-blend-mode: difference;
 	}
-
 	p {
 		margin: 0 auto;
 		width: 100%;
@@ -111,6 +120,7 @@ header {
 		font-size: 22px;
 	}
 }
+
 @media (max-width: 767px) {
 	header {}
 }

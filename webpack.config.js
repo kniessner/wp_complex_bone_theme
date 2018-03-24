@@ -77,7 +77,7 @@ module.exports = function(env) {
 
          plugins: [
             //new webpack.HotModuleReplacementPlugin(),
-            new webpack.LoaderOptionsPlugin({
+           new webpack.LoaderOptionsPlugin({
                  // test: /\.xxx$/, // may apply this only for some modules
                  options: {
                      eslint: {
@@ -86,7 +86,7 @@ module.exports = function(env) {
                         failOnError: false
                     }
                  }
-               }),
+            }),
             new webpack.ProvidePlugin({ // inject ES5 modules as global vars
               $: 'jquery',
               jQuery: 'jquery',

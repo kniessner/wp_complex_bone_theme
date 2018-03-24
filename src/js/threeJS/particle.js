@@ -15,13 +15,8 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 			animate();
 
 			function init() {
-
 				//container = document.createElement( 'div' );
 				//document.getElementById('Orbit').appendChild( container );
-
-
-
-
 				camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 3000 );
 				camera.position.z = 1000;
 
@@ -36,7 +31,6 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 					vertex.x = Math.random() * 2000 - 1000;
 					vertex.y = Math.random() * 2000 - 1000;
 					vertex.z = Math.random() * 2000 - 1000;
-
 					geometry.vertices.push( vertex );
 
 				}
@@ -50,20 +44,14 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 				];
 
 				for ( i = 0; i < parameters.length; i ++ ) {
-
 					color = parameters[i][0];
 					size  = parameters[i][1];
-
 					materials[i] = new THREE.PointsMaterial( { size: size } );
-
 					particles = new THREE.Points( geometry, materials[i] );
-
 					particles.rotation.x = Math.random() * 6;
 					particles.rotation.y = Math.random() * 6;
 					particles.rotation.z = Math.random() * 6;
-
 					scene.add( particles );
-
 				}
 
 				renderer = new THREE.WebGLRenderer();
@@ -71,16 +59,11 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 				renderer.setSize( window.innerWidth, window.innerHeight );
 				document.getElementById('app').appendChild( renderer.domElement );
 
-
 				//stats = new Stats();
 				//container.appendChild( stats.dom );
-
 				document.addEventListener( 'mousemove', onDocumentMouseMove, false );
 				document.addEventListener( 'touchstart', onDocumentTouchStart, false );
 				document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-
-				//
-
 				window.addEventListener( 'resize', onWindowResize, false );
 
 			}
@@ -89,10 +72,8 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 
 				windowHalfX = window.innerWidth / 2;
 				windowHalfY = window.innerHeight / 2;
-
 				camera.aspect = window.innerWidth / window.innerHeight;
 				camera.updateProjectionMatrix();
-
 				renderer.setSize( window.innerWidth, window.innerHeight );
 
 			}
@@ -143,10 +124,10 @@ var OrbitControls = require('three-orbit-controls')(THREE);
 
 			function render() {
 
-				var time = Date.now() * 0.00005;
+				var time = Date.now() * 0.0000005;
 
-				camera.position.x += ( mouseX - camera.position.x ) * 0.05;
-				camera.position.y += ( - mouseY - camera.position.y ) * 0.05;
+				camera.position.x += ( mouseX - camera.position.x ) * 0.0005;
+				camera.position.y += ( - mouseY - camera.position.y ) * 0.0005;
 
 				camera.lookAt( scene.position );
 

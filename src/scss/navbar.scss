@@ -5,16 +5,15 @@
 }
 
 .action_panel{
-  position: FIXED;
-      //color: #F8E900;
-      width: 50px;
-      //background: RGBA(84, 84, 84, 1);
-      z-index: 10;
-      RIGHT: 10px;
-      BOTTOM: 50px;
-      float: left;
-      text-align: center;
-      padding:  0;
+ position: absolute;
+ width: 50px;
+ z-index: 10;
+ left: 10px;
+ top: 20px;
+ float: left;
+ text-align: center;
+ padding: 5px;
+ background: rgba(250, 250, 250, 0.2);
 	.fa{
 		margin:  10px;
 	}

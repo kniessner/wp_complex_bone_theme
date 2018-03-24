@@ -1,22 +1,22 @@
 footer {
 	position: fixed;
-bottom: 0;
-height: 50px;
-width: 100%;
-z-index: 100;
-overflow: hidden;
-display: inline-block;
-left: 0;
-background: rgba(0, 0, 0, 0.7);
+	bottom: 0;
+	height: 50px;
+	width: 100%;
+	z-index: 100;
+	overflow: hidden;
+	display: inline-block;
+	left: 0;
+	background: rgba(0, 0, 0, 0.7);
 	.footer_content {
 		//background: rgba(0, 0, 0, 0.7);
 		background: rgba(0, 0, 0, 0.7);
-	padding: 20px;
-	overflow: hidden;
-	height: 980%;
-	width: 100%;
-	position: absolute;
-	bottom: 10px;
-	left: 0;
+		padding: 20px;
+		overflow: hidden;
+		height: 980%;
+		width: 100%;
+		position: absolute;
+		bottom: 10px;
+		left: 0;
 	}
 }
