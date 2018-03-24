@@ -14,14 +14,35 @@
 
 get_header(); ?>
 
-<div id="content_wrap">
+<main id="main" class="site-main">
+          <?php
+              $attachments = get_posts( array(
+                'post_type' => 'attachment',
+                'posts_per_page' => 6,
+              ));
+               if ( $attachments ) { ?>
 
-</div>
+                 <section id="photo_grid" class="background_plates">
+                     <?php $y = 0;
+                         foreach ( $attachments as $attachment ) {
+                             $y++; ?>
 
- <div class="style_overlay">
+                                 <div class="plate" data-target="#MainSlider" data-slide-to="<?php echo $y; ?>">
+                                   <div class="plate_content" style="background-image:url(<?php echo wp_get_attachment_url( $attachment->ID );?>);">
+
+                                   </div>
+                                 </div>
+                       <?php } ?>
+                 </section>
+
+      <?php   }   ?>
+</main>
+
+<div class="style_overlay">
     <div id="particles-js"></div>
     <canvas class="particle_background"></canvas>
   	<canvas id="point_mesh"></canvas>
     <div id="Orbit"></div>
-  </div>
+</div>
+
 <?php get_footer(); ?>
