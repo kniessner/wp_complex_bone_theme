@@ -5,14 +5,11 @@ $colour4: rgb(255,255,0); // yellow
 $colors: $colour1, $colour2, $colour3, $colour4;
 
 #point_mesh {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: block;
-  z-index: 1;
-  width: 100% !important;
+     position: absolute;
+     width: 100%;
+     height: 100%;
+     top: 20px;
+     margin: 20px;
 }
 .l_square{
 	height: 200%;

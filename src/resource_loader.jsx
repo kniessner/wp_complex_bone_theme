@@ -72,8 +72,9 @@ import './js/animations'
 import './js/grid'
 import './js/slider'
 //import "./js/threeStart";
+import './js/point_mesh'
 import './js/menu'
 import './js/orbit'
-//import './js/point_mesh'
+
 //import './js/threeJS/pointCloud'
 //import './js/threeJS/particle'

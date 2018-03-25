@@ -25,19 +25,6 @@
 
 
 <body <?php hybrid_attr( 'body' ); ?> name="top">
-
-
-  <!-- *******    Main Menu
-    ********************* -->
-  <?php  // get_template_part( 'wp_setup/menus/menu-primary-top-collapsed' );
-    ?>
-
-
-
-
-
-  <!-- *******   Header
-********************* -->
   <header data-toggle="affix" class="" id="header_panel">
 
     <div class="inner_header">
@@ -77,19 +64,17 @@
               </svg>
             </div>
             <div class="header_subline ">Sascha-Darius Knießner</div>
-           <div class="action_panel social_actions">
+
+            <div class="action_panel social_actions">
               <i class="fa fa-linkedin" aria-hidden="true"></i>
               <i class="fa fa-github" aria-hidden="true"></i>
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <i class="fa fa-flickr" aria-hidden="true"></i>
             </div>
           </div>
-    
+          <canvas id="point_mesh"></canvas>
       </div>
     </div>
-
-    <div class=" l_square container"></div>
-
   </header>
   <!-- <h1 style="border-bottom:1px solid silver;text-align: left;padding: 10px;background: none;color: black;">
   KNIESSNER COMPLEX

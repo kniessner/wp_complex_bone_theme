@@ -41,7 +41,6 @@ get_header(); ?>
 <div class="style_overlay">
     <div id="particles-js"></div>
     <canvas class="particle_background"></canvas>
-  	<canvas id="point_mesh"></canvas>
     <div id="Orbit"></div>
 </div>
 
