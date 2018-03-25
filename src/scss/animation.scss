@@ -36,14 +36,12 @@ $colors: $colour1, $colour2, $colour3, $colour4;
 .background_plates {
   width: 100%;
   min-height: 100vh;
-  position: relative; //  margin: 50px 0;
+  position: relative;
   left: 0;
   top: 0;
   z-index: 2;
   float: left;
- // mix-blend-mode: saturation;
-  display: inline-block;
-
+  display: none;
 }
 
 .plate {

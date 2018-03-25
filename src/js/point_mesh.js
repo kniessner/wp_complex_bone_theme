@@ -94,7 +94,6 @@ jQuery(document).ready(function ($) {
 			}
 			window.requestAnimationFrame(loop);
 		}
-
 		function loop() {
 			window.requestAnimationFrame(loop);
 			drawArea.clearRect(0, 0, w, h);
@@ -106,8 +105,6 @@ jQuery(document).ready(function ($) {
 				linkPoints(particles[i], particles);
 			}
 		}
-
-
 		var drawArea = canvasBody.getContext("2d");
 		let delay = 200,
 			tid,
