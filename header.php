@@ -26,6 +26,7 @@
 
 <body <?php hybrid_attr( 'body' ); ?> name="top">
   <header data-toggle="affix" class="" id="header_panel">
+     <div class="inner_header">
     <div id="logoTitle">
             <div class="logo_wrap ">
               <svg version="1.1" id="logo" class=" svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
@@ -60,13 +61,12 @@
                     c2.7,0.7,5.6-0.3,7.4-2.5C159.7,41.3,159.4,42.3,159.5,41.3z"></path>
               </svg>
              <div class="header_subline ">Sascha-Darius Knießner</div>
-            </div> </div>
-             <div class="inner_header">
+            </div> 
+          </div>
             <div class="action_panel social_actions">
-             <a href="https://www.linkedin.com/in/sascha-darius-knie%C3%9Fner-0686a3139/"> <i class="fa fa-linkedin" aria-hidden="true"></i></a>
-             <a href="https://github.com/kniessner"> <i class="fa fa-github" aria-hidden="true"></i></a>
-              <i class="fa fa-envelope" aria-hidden="true"></i>
-              <i class="fa fa-flickr" aria-hidden="true"></i>
+             <a href="https://www.linkedin.com/in/sascha-darius-knie%C3%9Fner-0686a3139/"> <i class="fa fa-linkedin " aria-hidden="true"></i></a>
+             <a href="https://github.com/kniessner"> <i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+             <a href="mailto:sascha-darius@kniessner.com?subject=CMPLX: ..."> <i class="fa fa-envelope " aria-hidden="true"></i></a>
             </div>
           </div>
   </header>

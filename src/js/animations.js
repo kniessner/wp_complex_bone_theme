@@ -21,7 +21,7 @@ $(document).ready(function($) {
   var parallaxQuantity = carouselInner.length;
   //    simpleParallax(2, $('.container'));
   simpleParallax(-2, slider);
-  simpleParallax(-2.5, $("header"));
+ // simpleParallax(-2.5, $("header"));
   // simpleParallax(1.3, $('#logo'));
 
   $(window).on("scroll", function() {
@@ -86,9 +86,7 @@ $(document).ready(function($) {
   function updateView(ele) {
     ele.css({
       transform:
-        "perspective(525px) translateZ(" +
-        Z +
-        "px) rotateX(" +
+        "perspective(525px) rotateX(" +
         XAngle +
         "deg) rotateY(" +
         YAngle +
