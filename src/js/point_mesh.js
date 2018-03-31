@@ -10,12 +10,12 @@ jQuery(document).ready(function ($) {
         let opts;
 
         opts = {
-			particleColor: "rgb(200,200,200)",
-			lineColor: "rgb(200,200,200)",
-			particleAmount: 30,
-			defaultSpeed: 1,
+			particleColor: "rgba(200,200,200,0.6)",
+			lineColor: "rgba(200,200,200,0.4)",
+			particleAmount: 130,
+			defaultSpeed: 0.2,
 			variantSpeed: 1,
-			defaultRadius: 2,
+			defaultRadius: 1,
 			variantRadius: 2,
 			linkRadius: 200,
 		};

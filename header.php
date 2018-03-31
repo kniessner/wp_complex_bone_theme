@@ -26,8 +26,6 @@
 
 <body <?php hybrid_attr( 'body' ); ?> name="top">
   <header data-toggle="affix" class="" id="header_panel">
-
-   
     <div id="logoTitle">
             <div class="logo_wrap ">
               <svg version="1.1" id="logo" class=" svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
@@ -61,22 +59,20 @@
                     c0,0.8,0,1.6,0,2.8 M159.5,41.3h-34.9c0,3.4,0,6.4,0,9.8c0.6-0.4,1-0.7,1.3-0.9c0.4-0.3,0.9-0.6,1.3-0.9c7.3-4.6,15.2-5.7,23.5-3.7
                     c2.7,0.7,5.6-0.3,7.4-2.5C159.7,41.3,159.4,42.3,159.5,41.3z"></path>
               </svg>
-            </div>
-             </div>
+             <div class="header_subline ">Sascha-Darius Knießner</div>
+            </div> </div>
              <div class="inner_header">
-            <div class="header_subline ">Sascha-Darius Knießner</div>
-
             <div class="action_panel social_actions">
-              <i class="fa fa-linkedin" aria-hidden="true"></i>
-              <i class="fa fa-github" aria-hidden="true"></i>
+             <a href="https://www.linkedin.com/in/sascha-darius-knie%C3%9Fner-0686a3139/"> <i class="fa fa-linkedin" aria-hidden="true"></i></a>
+             <a href="https://github.com/kniessner"> <i class="fa fa-github" aria-hidden="true"></i></a>
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <i class="fa fa-flickr" aria-hidden="true"></i>
             </div>
           </div>
-        <div class="inner_side_header" style="">
-          <canvas id="point_mesh"></canvas>
-    </div>
   </header>
+  <div class="inner_side_header" style="">
+         <canvas id="point_mesh"></canvas>
+   </div>
   <!-- <h1 style="border-bottom:1px solid silver;text-align: left;padding: 10px;background: none;color: black;">
   KNIESSNER COMPLEX
 </h1> -->

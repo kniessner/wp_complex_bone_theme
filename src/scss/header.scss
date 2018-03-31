@@ -1,7 +1,7 @@
 header {
 	z-index: 15;
 	display: block;
-	position: fixed;
+	position: absolute;
 	margin: 0 auto;
 	padding: 20px;
 	height: 100vh;
@@ -12,12 +12,15 @@ header {
 	right: 0px; //overflow: hidden;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	.inner_header {
-		background: #393939;
-		height: 100%;
-		width: 100%;
-		padding: 0px;
-		display: block;
-		position: relative;
+	background: rgba(0, 0, 0, 0.2);
+	height: 100vh;
+	//width: 200px;
+	padding: 0px;
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	border-left: 10px solid;
 		.inner_side_header {
 			margin: 0 20px;
 			width: 100%;
@@ -32,9 +35,8 @@ header {
 	}
 	#logoTitle {
 		width: 90vw;
-		height: calc(37vh - 60px);
-		bottom: calc(100% + 20px);
-		position: absolute;
+		height: 100vh;
+		//position: absolute;
 		right: 0;
 		top: 0;
 		.header_subline {
@@ -45,16 +47,16 @@ header {
 			display: block;
 			z-index: 100;
 			text-align: right;
-			margin-bottom: 10px;
-			bottom: 10px;
-			padding-top: 50px;
-			position: absolute;
-			left: 40px;
+			font-size: 12px;
+			left: 20px;
+			float: right;
+			padding: 20px;
+			margin-top: -100px;
 		}
 		.logo_wrap {
 			z-index: 100;
 			margin-bottom: -40px;
-			bottom: -100%;
+			margin: 100px;
 			padding: 10px 50px 20px;
 			position: absolute;
 			left: 0;
@@ -77,11 +79,11 @@ header {
 					transition: all 3500ms;
 				}
 				&:hover {
-					-webkit-transition: all 500ms;
-					-moz-transition: all 500ms;
-					-ms-transition: all 500ms;
-					-o-transition: all 500ms;
-					transition: all 500ms;
+					//-webkit-transition: all 500ms;
+					//-moz-transition: all 500ms;
+					//-ms-transition: all 500ms;
+					//-o-transition: all 500ms;
+					//transition: all 500ms;
 					.circle {
 						filter: grayscale(1) drop-shadow(16px 30px 10px rgba(0, 0, 0, 0.9));
 						stroke: RGBA(84, 84, 84, 0.5);
