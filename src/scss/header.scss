@@ -10,7 +10,7 @@ header {
 	padding: 0px;
 	display: block;
 	right: 0px; //overflow: hidden;
-	border: 20px solid rgba(0, 0, 0, 0.2);
+	
 	.inner_header {
 height: 100%;
 padding: 20px;
@@ -121,5 +121,7 @@ display: block;
 }
 
 @media (max-width: 767px) {
-	header {}
+	.logo_wrap {
+		width: 100vw;
+	}
 }
