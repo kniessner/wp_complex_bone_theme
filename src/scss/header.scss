@@ -3,39 +3,40 @@ header {
 	display: block;
 	position: fixed;
 	margin: 0 auto;
+	padding: 20px;
 	height: 100vh;
-	width: 33%;
-	right:0px;
-	overflow: hidden;
+	width: 100vh;
+	width: 100%;
+	padding: 0px;
+	display: block;
+	right: 0px; //overflow: hidden;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	.inner_header {
-		background: rgba(200, 200, 200, 0.8);
+		background: #393939;
 		height: 100%;
 		width: 100%;
 		padding: 0px;
 		display: block;
 		position: relative;
-		.inner_side_header{
-			background: rgba(248, 233, 0, 0.6);
+		.inner_side_header {
 			margin: 0 20px;
 			width: 100%;
 			height: 63vh;
-			border: none;
-			//top: 400px;
+			border: none; //top: 400px;
 			transform: rotate(0deg);
 			right: 0;
 			bottom: 0;
 			position: absolute;
-			z-index: 1000;
-			//margin-bottom: -400px;
+			z-index: 1000; //margin-bottom: -400px;
 		}
 	}
 	#logoTitle {
-	width: 100%;
-	height: calc(37vh - 40px);
-	background: rgba(0, 0, 0, 0.3);
-	bottom: calc(100% + 20px);
-	position: absolute;
+		width: 90vw;
+		height: calc(37vh - 60px);
+		bottom: calc(100% + 20px);
+		position: absolute;
+		right: 0;
+		top: 0;
 		.header_subline {
 			letter-spacing: 0.8em;
 			color: snow;
@@ -52,12 +53,12 @@ header {
 		}
 		.logo_wrap {
 			z-index: 100;
-			margin-bottom: 10px;
-			bottom: 40px;
-			padding: 0 200px 50px;
+			margin-bottom: -40px;
+			bottom: -100%;
+			padding: 10px 50px 20px;
 			position: absolute;
 			left: 0;
-			width: 100%;
+			width: 60%;
 			#logo {
 				width: 100%;
 				height: auto;
@@ -96,7 +97,6 @@ header {
 			}
 		}
 	}
-
 	#Orbit_Header {
 		position: fixed;
 		top: 0;

@@ -2,12 +2,14 @@ jQuery(document).ready(function ($) {
 	var canvasBody = document.getElementById("point_mesh");
 
 	if (canvasBody) {
-		let resizeReset = function () {
+        let resizeReset = function () {
 			w = canvasBody.width = window.innerWidth;
 			h = canvasBody.height = window.innerHeight;
 		}
 
-		const opts = {
+        let opts;
+
+        opts = {
 			particleColor: "rgb(200,200,200)",
 			lineColor: "rgb(200,200,200)",
 			particleAmount: 30,
@@ -18,22 +20,22 @@ jQuery(document).ready(function ($) {
 			linkRadius: 200,
 		};
 
-		window.addEventListener("resize", function () {
+        window.addEventListener("resize", function () {
 			deBouncer();
 		});
 
-		let deBouncer = function () {
+        let deBouncer = function () {
 			clearTimeout(tid);
 			tid = setTimeout(function () {
 				resizeReset();
 			}, delay);
 		};
 
-		let checkDistance = function (x1, y1, x2, y2) {
+        let checkDistance = function (x1, y1, x2, y2) {
 			return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 		};
 
-		let linkPoints = function (point1, hubs) {
+        let linkPoints = function (point1, hubs) {
 			for (let i = 0; i < hubs.length; i++) {
 				let distance = checkDistance(point1.x, point1.y, hubs[i].x, hubs[i].y);
 				let opacity = 1 - distance / opts.linkRadius;
@@ -49,7 +51,7 @@ jQuery(document).ready(function ($) {
 			}
 		}
 
-		Particle = function (xPos, yPos) {
+        Particle = function (xPos, yPos) {
 			this.x = Math.random() * w;
 			this.y = Math.random() * h;
 			this.speed = opts.defaultSpeed + Math.random() * opts.variantSpeed;
@@ -86,7 +88,7 @@ jQuery(document).ready(function ($) {
 			};
 		};
 
-		function setup() {
+        function setup() {
 			particles = [];
 			resizeReset();
 			for (let i = 0; i < opts.particleAmount; i++) {
@@ -94,7 +96,7 @@ jQuery(document).ready(function ($) {
 			}
 			window.requestAnimationFrame(loop);
 		}
-		function loop() {
+        function loop() {
 			window.requestAnimationFrame(loop);
 			drawArea.clearRect(0, 0, w, h);
 			for (let i = 0; i < particles.length; i++) {
@@ -105,12 +107,12 @@ jQuery(document).ready(function ($) {
 				linkPoints(particles[i], particles);
 			}
 		}
-		var drawArea = canvasBody.getContext("2d");
-		let delay = 200,
+        var drawArea = canvasBody.getContext("2d");
+        let delay = 200,
 			tid,
 			rgb = opts.lineColor.match(/\d+/g);
-			deBouncer();
-		resizeReset();
-		setup();
-	}
+        deBouncer();
+        resizeReset();
+        setup();
+    }
 });

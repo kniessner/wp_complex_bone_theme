@@ -27,9 +27,8 @@
 <body <?php hybrid_attr( 'body' ); ?> name="top">
   <header data-toggle="affix" class="" id="header_panel">
 
-    <div class="inner_header">
-        <div class="inner_side_header" style="">
-          <div id="logoTitle">
+   
+    <div id="logoTitle">
             <div class="logo_wrap ">
               <svg version="1.1" id="logo" class=" svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
                 y="0px" viewBox="0 0 287.7 125.6" style="enable-background:new 0 0 287.7 125.6;" xml:space="preserve">
@@ -63,6 +62,8 @@
                     c2.7,0.7,5.6-0.3,7.4-2.5C159.7,41.3,159.4,42.3,159.5,41.3z"></path>
               </svg>
             </div>
+             </div>
+             <div class="inner_header">
             <div class="header_subline ">Sascha-Darius Knießner</div>
 
             <div class="action_panel social_actions">
@@ -72,10 +73,10 @@
               <i class="fa fa-flickr" aria-hidden="true"></i>
             </div>
           </div>
+        <div class="inner_side_header" style="">
           <canvas id="point_mesh"></canvas>
-      </div>
     </div>
   </header>
   <!-- <h1 style="border-bottom:1px solid silver;text-align: left;padding: 10px;background: none;color: black;">
   KNIESSNER COMPLEX
-</h1> -->  <span class="background"></span>
+</h1> -->
