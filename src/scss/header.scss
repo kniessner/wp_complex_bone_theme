@@ -121,19 +121,24 @@ display: block;
 }
 
 @media (max-width: 767px) {
-	header .inner_header #logoTitle .logo_wrap {
-		width: 100vw;
-		//padding: 20px;
-		margin: 0 auto;
-		left: -20px;
+
+	header .inner_header {
+padding: 0;
+		#logoTitle{
+			margin: 20px 0;
+			padding: 50px  20px;
+			.logo_wrap {
+				width: 80vw;
+				padding: 0px;
+				margin: 0 auto;
+				position: relative;
+			}
 	}
-
-
-header .inner_header #logoTitle {
-	padding: 0px;
 }
+
 header .inner_header #logoTitle .header_subline {
 	margin-top: 0px;
+	float: none;
 }
 .action_panel {
 	top: auto;
