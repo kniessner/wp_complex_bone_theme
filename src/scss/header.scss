@@ -121,7 +121,27 @@ display: block;
 }
 
 @media (max-width: 767px) {
-	.logo_wrap {
+	header .inner_header #logoTitle .logo_wrap {
 		width: 100vw;
+		//padding: 20px;
+		margin: 0 auto;
+		left: -20px;
 	}
+
+
+header .inner_header #logoTitle {
+	padding: 0px;
+}
+header .inner_header #logoTitle .header_subline {
+	margin-top: 0px;
+}
+.action_panel {
+	top: auto;
+	width: 100%;
+	left: 20px;
+	bottom: 0;
+	right: auto;
+	margin: 0 auto;
+	left: 0;
+}
 }
